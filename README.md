@@ -7,6 +7,13 @@ JSON Structure:-
   - primaryColor
   - secondaryColor
   - font
+- meta
+  - title
+  - description
+  - creator
+  - keywords // arrays
+  - icons
+  - robots
 - nav
   - image
   - name
@@ -40,6 +47,39 @@ JSON Example:-
     "primaryColor": "",
     "secondaryColor": "",
     "font": "Roberto"
+  },
+  "meta": {
+    "title": "Anmol Agrawal's Portfolio",
+    "description": "Portfolio of Full Stack Developer - Anmol Agrawal",
+    "keywords": [
+      "Anmol",
+      "Anmol Agrawal",
+      "Developer",
+      "Software Developer",
+      "Full Stack Developer"
+    ],
+    "icons": {
+      "icon": "https://placehold.co/60x60/A5DD9B/white/png?text=AA",
+      "shortcut": "/shortcut-icon.png",
+      "apple": "/apple-icon.png",
+      "other": {
+        "rel": "apple-touch-icon-precomposed",
+        "url": "/apple-touch-icon-precomposed.png"
+      }
+    },
+    "robots": {
+      "index": false,
+      "follow": true,
+      "nocache": true,
+      "googleBot": {
+        "index": true,
+        "follow": false,
+        "noimageindex": true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1
+      }
+    }
   },
   "nav": {
     "image": "",
@@ -94,7 +134,10 @@ JSON Example:-
           "type": "media-item",
           "columns": 2,
           "heading": "Project 1",
-          "media-details": {},
+          "media-details": {
+            "type": "image",
+            "src": ""
+          },
           "description": "Ad aliquip labore enim proident pariatur duis ex et veniam. Mollit ipsum sunt ex esse do laborum. Do proident ullamco dolor mollit proident ullamco fugiat culpa cillum commodo incididunt sint laborum. Et consectetur velit ut ex eiusmod Lorem irure qui aute laborum dolor. Exercitation dolor exercitation ut in elit dolor nisi. Amet officia aliquip in nisi mollit nulla veniam commodo nostrud."
         },
         {
@@ -102,7 +145,10 @@ JSON Example:-
           "type": "media-item",
           "columns": 2,
           "heading": "Project 2",
-          "media-details": {},
+          "media-details": {
+            "type": "video",
+            "src": ""
+          },
           "description": "Sint sint id cillum dolore. Commodo esse aliquip cupidatat in culpa nulla commodo culpa non elit. Ex occaecat aliqua anim ex aliqua ullamco enim ea exercitation. Laborum commodo laboris ad nulla sint ullamco ipsum officia exercitation commodo. Ut est labore irure esse dolore esse. Voluptate veniam commodo nulla commodo eu ex qui qui culpa adipisicing id ut voluptate. Lorem dolor laborum elit officia ipsum anim dolore ipsum commodo consectetur eu."
         },
         {
@@ -110,7 +156,10 @@ JSON Example:-
           "type": "media-item",
           "columns": 2,
           "heading": "Project 3",
-          "media-details": {},
+          "media-details": {
+            "type": "image-slide",
+            "src": [""]
+          },
           "description": "Minim anim minim Lorem aliqua irure amet ad ex aliqua in do ea Lorem irure. Dolor labore minim est deserunt ipsum eu occaecat laboris officia do id. Eiusmod est sunt irure consequat consectetur Lorem non excepteur fugiat anim elit. Non officia voluptate eu velit sunt labore proident non nisi esse eu duis dolor irure."
         }
       ]
