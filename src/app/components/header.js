@@ -10,6 +10,7 @@ const StyledHeader = styled.div`
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);
   min-height: 12vh;
   position: fixed;
+  z-index: 1;
 `;
 
 const Brand = styled.div`
