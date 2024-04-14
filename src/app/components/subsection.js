@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Badges from "./badges";
 import MediaItem from "./mediaItem";
+import HR from "./hr";
 
 const StyledSubsection = styled.div`
   padding: ${(props) => (props.topLevel ? "2rem 0" : "0")};
@@ -22,6 +23,8 @@ export default function Subsection({ data, topLevel }) {
         <Badges data={data.badges} />
       ) : data.type === "media-item" ? (
         <MediaItem data={data} />
+      ) : data.type === "hr" ? (
+        <HR />
       ) : (
         <code>{JSON.stringify(data)}</code> // Todo: Handle all other type of sub sections.
       )}
