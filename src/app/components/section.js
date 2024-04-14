@@ -10,7 +10,7 @@ const SectionWrapper = styled.div`
   width: 100%;
   background: ${(props) =>
     props.home
-      ? "url('/images/home-background1.jpeg'), linear-gradient(90deg, #30d63a, #dfc014)"
+      ? "url('/images/home-background.jpeg'), linear-gradient(90deg, #30d63a, #dfc014)"
       : props.index && props.index % 2 == 0
       ? "#fafafa"
       : "#ffffff"};
