@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import Header from "./components/header";
-// import { promises as fs } from "fs";
 import Section from "./components/section";
 
 export default function Home() {
@@ -14,11 +13,6 @@ export default function Home() {
       .then((data) => {
         setProfileData(data);
       });
-
-    // const datafile = fs.readFile(
-    //   process.cwd() + "/src/app/data/profile.json",
-    //   "utf8"
-    // );
   }, []);
 
   return profileData ? (
@@ -28,7 +22,11 @@ export default function Home() {
         sections={profileData.sections?.map((section) => section.name)}
       />
       {profileData.sections?.map((section, idx) => (
-        <Section data={section} key={`section_${section.name}_${idx}`} />
+        <Section
+          data={section}
+          index={idx}
+          key={`section_${section.name}_${idx}`}
+        />
       ))}
     </>
   ) : (
