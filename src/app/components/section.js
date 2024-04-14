@@ -4,14 +4,16 @@ import Subsection from "./subsection";
 const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 18vh 8rem;
-  min-height: 100vh;
+  align-items: stretch;
+  padding: ${(props) => (props.topLevel ? "18vh 8rem" : "1rem 0")};
+  min-height: ${(props) => (props.topLevel ? "100vh" : "")};
   width: 100%;
   background: ${(props) =>
     props.home
       ? "url('/images/home-background.jpeg'), linear-gradient(90deg, #30d63a, #dfc014)"
-      : props.index && props.index % 2 == 0
+      : !props.index
+      ? "transparent"
+      : props.index % 2 == 0
       ? "#fafafa"
       : "#ffffff"};
   background-blend-mode: screen;
@@ -24,14 +26,14 @@ const SectionWrapper = styled.div`
       `
       : ""}
   @media screen and (max-width: 768px) {
-    padding: 18vh 1.5rem;
+    padding: ${(props) => (props.topLevel ? "18vh 1.5rem" : "0")};
   }
 `;
 
 const StyledHeading = styled.div`
   display: flex;
   gap: 2rem;
-  padding: 1rem 10rem;
+  padding: ${(props) => (props.topLevel ? "1rem 10rem" : "0")};
   flex-direction: column;
   text-align: center;
   color: grey;
@@ -56,7 +58,7 @@ const StyledHeading = styled.div`
 const SubsectionContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(${(props) => props.columns}, 1fr);
-  gap: 3rem;
+  gap: ${(props) => (props.topLevel ? "3rem" : "0.5rem")};
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -65,7 +67,8 @@ const SubsectionContainer = styled.div`
 const Buttons = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
+  padding: 1.5rem 0;
   gap: 1rem;
 `;
 
@@ -78,7 +81,7 @@ const StyledButton = styled.a`
     #839f7a 56%,
     #cbe5c2 100%
   ); // linear-gradient(90deg, #30d63a, #dfc014)
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 1rem;
   transition: 1000ms;
@@ -86,28 +89,34 @@ const StyledButton = styled.a`
   flex-direction: row;
   align-items: center;
   cursor: pointer;
-  text-transform: uppercase;
 
   &:hover {
     transition: 1000ms;
-    padding: 1.5rem 2.5rem;
+    padding: 1rem 2rem;
   }
 `;
 
-export default function Section({ data, index }) {
+export default function Section({ data, index, topLevel }) {
   return (
     <section id={data.name}>
-      <SectionWrapper home={data.type === "home"} index={index}>
-        <StyledHeading home={data.type === "home"}>
-          <h1 dangerouslySetInnerHTML={{ __html: data.heading }}></h1>
-          <p>{data.description}</p>
-        </StyledHeading>
+      <SectionWrapper
+        home={data.type === "home"}
+        index={index}
+        topLevel={topLevel}
+      >
+        {data.heading && (
+          <StyledHeading home={data.type === "home"} topLevel={topLevel}>
+            <h1 dangerouslySetInnerHTML={{ __html: data.heading }}></h1>
+            <p>{data.description}</p>
+          </StyledHeading>
+        )}
         {data.subsections && (
-          <SubsectionContainer columns={data.columns}>
+          <SubsectionContainer columns={data.columns} topLevel={topLevel}>
             {data.subsections.map((subsection, idx) => (
               <Subsection
                 key={`${data.name}_subsection_${idx}`}
                 data={subsection}
+                topLevel={topLevel}
               ></Subsection>
             ))}
           </SubsectionContainer>
