@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Section from "./section";
+import Carousel from "./carousel";
 
 const MediaItemContainer = styled.div`
   display: grid;
@@ -28,11 +29,24 @@ export default function MediaItem({ data }) {
       badges: data.badges,
     });
   }
+  const renderMedia = () => {
+    switch (data.mediaDetails.type) {
+      case "image":
+        return (
+          <div>
+            <img src={data.mediaDetails.src} alt="" />
+          </div>
+        );
+      case "video":
+        return <></>;
+      case "image-slide":
+        return <Carousel name={data.name} images={data.mediaDetails.src} />;
+    }
+  };
+
   return (
     <MediaItemContainer>
-      <div>
-        <img src={data.mediaDetails.src} alt="" />
-      </div>
+      {renderMedia()}
       <Section
         data={{
           name: data.name,
