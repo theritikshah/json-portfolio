@@ -1,4 +1,5 @@
 import { promises as fs } from "fs";
+import "./test.css";
 
 export const generateMetadata = async () => {
   const file = await fs.readFile(

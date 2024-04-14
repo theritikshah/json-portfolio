@@ -1,0 +1,130 @@
+:root {
+  --primaryColor: #ffffff;
+  --secondaryColor: #707070;
+  --accentColor: #5e7656;
+  --accentLightColor: #839f7a;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100vh;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+  font-family: "Noto Sans", sans-serif;
+  line-height: 1.8rem;
+  transition: background-color 0.3s linear;
+  display: grid;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ==========================================================================
+     Spacing, Utilities, etc
+     ========================================================================== */
+
+div.gap-1 {
+  height: 2rem;
+}
+
+div.gap-2 {
+  height: 4rem;
+}
+
+div.gap-3 {
+  height: 8rem;
+}
+
+div.hr {
+  padding: 0;
+  width: 10%;
+  border: dotted #655c56 6px;
+  border-bottom: none;
+  margin: 2rem auto;
+}
+
+/* @media screen and (max-width: 1024px) {
+  .nav-links {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .action-buttons {
+    width: 90%;
+  }
+
+  .ham {
+    display: block;
+  }
+
+  header div {
+    z-index: 1;
+  }
+
+  .nav-links {
+    z-index: 0;
+    position: absolute;
+    top: 12vh;
+    background-color: var(--accentLightColor);
+    min-height: 50vh;
+    right: 0px;
+    flex-direction: column;
+    width: 100%;
+    transform: translateY(-150%);
+    transition: all 0.5s ease-in;
+    justify-content: flex-start;
+  }
+
+  .nav-links li {
+    opacity: 0;
+    height: 15%;
+    display: none;
+    border-bottom: 2px solid var(--accentColor);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-active {
+    transform: translateX(0%);
+    box-shadow: -10px 20px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-active li {
+    display: block;
+  }
+
+  .trigger .line1 {
+    transform: rotate(45deg) translate(0px, 6px);
+  }
+
+  .trigger .line2 {
+    display: none;
+  }
+
+  .trigger .line3 {
+    transform: rotate(-45deg) translate(0px, -6px);
+  }
+} */
