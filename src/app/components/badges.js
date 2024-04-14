@@ -13,8 +13,8 @@ const Badge = styled.li`
   border-radius: 0.5rem;
   font-size: 0.8rem;
   font-weight: 400;
-  background-color: #${(props) => props.color}30;
-  color: #${(props) => props.color};
+  background-color: #${(props) => props.$color}30;
+  color: #${(props) => props.$color};
 `;
 
 export default function Badges({ data }) {
@@ -31,7 +31,7 @@ export default function Badges({ data }) {
     <>
       <StyledBadges>
         {data.map((badge, idx) => (
-          <Badge color={`${randomColor()}`} key={`badge_${idx}`}>
+          <Badge $color={`${randomColor()}`} key={`badge_${idx}`}>
             {badge}
           </Badge>
         ))}

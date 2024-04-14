@@ -24,8 +24,8 @@ export default function Home() {
       {profileData.sections?.map((section, idx) => (
         <Section
           data={section}
-          index={idx}
-          topLevel
+          $index={idx}
+          $topLevel
           key={`section_${section.name}_${idx}`}
         />
       ))}

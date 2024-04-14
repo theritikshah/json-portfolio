@@ -10,7 +10,7 @@ const ImageSlider = styled.div`
   display: flex;
   aspect-ratio: 1366/767;
   transition: transform 1s ease-in-out;
-  transform: translateX(${(props) => props.counter * -100}%);
+  transform: translateX(${(props) => props.$counter * -100}%);
   img {
     width: 100%;
   }
@@ -30,13 +30,12 @@ export default function Carousel({ name, images }) {
   useEffect(() => {
     setTimeout(() => {
       carouselInfiniteScroll();
-      console.log(currCarouselIndex);
     }, 3000);
   });
 
   return (
     <ImageContainer>
-      <ImageSlider counter={currCarouselIndex}>
+      <ImageSlider $counter={currCarouselIndex}>
         {images.map((image, idx) => (
           <img
             src={image}

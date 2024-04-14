@@ -5,60 +5,60 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: ${(props) => (props.topLevel ? "18vh 8rem" : "1rem 0")};
-  min-height: ${(props) => (props.topLevel ? "100vh" : "")};
+  padding: ${(props) => (props.$topLevel ? "18vh 8rem" : "1rem 0")};
+  min-height: ${(props) => (props.$topLevel ? "100vh" : "")};
   width: 100%;
   background: ${(props) =>
-    props.home
+    props.$home
       ? "url('/images/home-background.jpeg'), linear-gradient(90deg, #30d63a, #dfc014)"
-      : !props.index
+      : !props.$index
       ? "transparent"
-      : props.index % 2 == 0
+      : props.$index % 2 == 0
       ? "#fafafa"
       : "#ffffff"};
   background-blend-mode: screen;
   background-size: cover;
   ${(props) =>
-    props.home
+    props.$home
       ? `
         display: grid;
         place-items: center;
       `
       : ""}
   @media screen and (max-width: 768px) {
-    padding: ${(props) => (props.topLevel ? "18vh 1.5rem" : "0")};
+    padding: ${(props) => (props.$topLevel ? "18vh 1.5rem" : "0")};
   }
 `;
 
 const StyledHeading = styled.div`
   display: flex;
   gap: 2rem;
-  padding: ${(props) => (props.topLevel ? "1rem 10rem" : "0")};
+  padding: ${(props) => (props.$topLevel ? "1rem 10rem" : "0")};
   flex-direction: column;
   text-align: center;
   color: grey;
   h1 {
     line-height: 3rem;
-    font-size: ${(props) => (props.home ? "4rem" : "2rem")};
+    font-size: ${(props) => (props.$home ? "4rem" : "2rem")};
   }
   p {
-    font-size: ${(props) => (props.home ? "2rem" : "1rem")};
+    font-size: ${(props) => (props.$home ? "2rem" : "1rem")};
   }
   @media screen and (max-width: 768px) {
     padding: 1rem;
     h1 {
-      font-size: ${(props) => (props.home ? "2.5rem" : "2rem")};
+      font-size: ${(props) => (props.$home ? "2.5rem" : "2rem")};
     }
     p {
-      font-size: ${(props) => (props.home ? "1.5rem" : "1rem")};
+      font-size: ${(props) => (props.$home ? "1.5rem" : "1rem")};
     }
   }
 `;
 
 const SubsectionContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(${(props) => props.columns}, 1fr);
-  gap: ${(props) => (props.topLevel ? "3rem" : "0.5rem")};
+  grid-template-columns: repeat(${(props) => props.$columns}, 1fr);
+  gap: ${(props) => (props.$topLevel ? "3rem" : "0.5rem")};
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -96,27 +96,27 @@ const StyledButton = styled.a`
   }
 `;
 
-export default function Section({ data, index, topLevel }) {
+export default function Section({ data, $index, $topLevel }) {
   return (
     <section id={data.name}>
       <SectionWrapper
-        home={data.type === "home"}
-        index={index}
-        topLevel={topLevel}
+        $home={data.type === "home"}
+        $index={$index}
+        $topLevel={$topLevel}
       >
         {data.heading && (
-          <StyledHeading home={data.type === "home"} topLevel={topLevel}>
+          <StyledHeading $home={data.type === "home"} $topLevel={$topLevel}>
             <h1 dangerouslySetInnerHTML={{ __html: data.heading }}></h1>
             <p>{data.description}</p>
           </StyledHeading>
         )}
         {data.subsections && (
-          <SubsectionContainer columns={data.columns} topLevel={topLevel}>
+          <SubsectionContainer $columns={data.columns} $topLevel={$topLevel}>
             {data.subsections.map((subsection, idx) => (
               <Subsection
                 key={`${data.name}_subsection_${idx}`}
                 data={subsection}
-                topLevel={topLevel}
+                $topLevel={$topLevel}
               ></Subsection>
             ))}
           </SubsectionContainer>
