@@ -62,6 +62,38 @@ const SubsectionContainer = styled.div`
   }
 `;
 
+const Buttons = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+`;
+
+const StyledButton = styled.a`
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #fff;
+  background: linear-gradient(
+    163deg,
+    #839f7a 56%,
+    #cbe5c2 100%
+  ); // linear-gradient(90deg, #30d63a, #dfc014)
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  transition: 1000ms;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &:hover {
+    transition: 1000ms;
+    padding: 1.5rem 2.5rem;
+  }
+`;
+
 export default function Section({ data, index }) {
   return (
     <section id={data.name}>
@@ -79,6 +111,18 @@ export default function Section({ data, index }) {
               ></Subsection>
             ))}
           </SubsectionContainer>
+        )}
+        {data.buttons && (
+          <Buttons>
+            {data.buttons.map((button, idx) => (
+              <StyledButton
+                key={`${data.name}_button_${idx}`}
+                href={button.link}
+              >
+                {button.text}
+              </StyledButton>
+            ))}
+          </Buttons>
         )}
       </SectionWrapper>
     </section>
