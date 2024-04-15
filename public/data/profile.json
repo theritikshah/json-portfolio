@@ -1,4 +1,5 @@
 {
+  "appName": "Anmol Agrawal's Portfolio",
   "theme": {
     "primaryColor": "",
     "secondaryColor": "",
@@ -159,5 +160,26 @@
         }
       ]
     }
-  ]
+  ],
+  "footer": {
+    "heading": "Anmol Agrawal",
+    "content": "<p>I'm a Frontend Focused Web Developer dedicated to crafting seamless user experiences and driving the success of digital products through effective frontend development.</p>",
+    "socials": [
+      {
+        "name": "Linkedin",
+        "icon": "fa-brands fa-linkedin-in",
+        "link": "https://www.linkedin.com/in/anmol-53/"
+      },
+      {
+        "name": "Github",
+        "icon": "fa-brands fa-github",
+        "link": "https://github.com/Anmol53"
+      },
+      {
+        "name": "Mail ID",
+        "icon": "fa-solid fa-envelope",
+        "link": "mailto:anmol.ag53@gmail.com"
+      }
+    ]
+  }
 }

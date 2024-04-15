@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Header from "./components/header";
 import Section from "./components/section";
+import Footer from "./components/footer";
 
 export default function Home() {
   const [profileData, setProfileData] = useState(undefined);
@@ -29,6 +30,7 @@ export default function Home() {
           key={`section_${section.name}_${idx}`}
         />
       ))}
+      <Footer appName={profileData.appName} data={profileData.footer} />
     </>
   ) : (
     <div>Site data not available.</div>

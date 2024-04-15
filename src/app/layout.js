@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import "./test.css";
+import Script from "next/script";
 
 export const generateMetadata = async () => {
   const file = await fs.readFile(
@@ -18,6 +19,9 @@ export const generateMetadata = async () => {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <Script src="https://kit.fontawesome.com/9e516a39e2.js"></Script>
+      </head>
       <body>{children}</body>
     </html>
   );
