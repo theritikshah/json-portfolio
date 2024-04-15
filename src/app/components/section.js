@@ -10,7 +10,7 @@ const SectionWrapper = styled.div`
   width: 100%;
   background: ${(props) =>
     props.$home
-      ? "url('images/home-background.jpeg'), linear-gradient(90deg, #30d63a, #dfc014)"
+      ? "url('images/home-background.jpeg'), linear-gradient(90deg, var(--accentLightColor), var(--accentColor))"
       : !props.$index
       ? "transparent"
       : props.$index % 2 == 0
@@ -36,7 +36,7 @@ const StyledHeading = styled.div`
   padding: ${(props) => (props.$topLevel ? "1rem 10rem 3rem" : "0")};
   flex-direction: column;
   text-align: center;
-  color: grey;
+  color: var(--secondaryColor);
   h1 {
     line-height: 3rem;
     font-size: ${(props) => (props.$home ? "4rem" : "2rem")};
@@ -75,12 +75,12 @@ const Buttons = styled.div`
 const StyledButton = styled.a`
   text-decoration: none;
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--primaryColor);
   background: linear-gradient(
     163deg,
-    #839f7a 56%,
-    #cbe5c2 100%
-  ); // linear-gradient(90deg, #30d63a, #dfc014)
+    var(--accentLightColor) 50%,
+    var(--accentColor) 100%
+  );
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 1rem;

@@ -25,7 +25,7 @@ const BrandName = styled.span`
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
-  color: white; // Todo from theme
+  color: var(--brandColor);
 `;
 
 const StyledNav = styled.nav`

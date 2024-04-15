@@ -20,7 +20,6 @@ const FooterMain = styled.div`
 `;
 
 const Socials = styled.div`
-  //   background-color: red;
   h3 {
     padding-bottom: 1rem;
   }
