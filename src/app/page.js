@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Header from "./components/header";
 import Section from "./components/section";
+import Subsection from "./components/subsection";
 
 export default function Home() {
   const [profileData, setProfileData] = useState(undefined);
@@ -31,6 +32,27 @@ export default function Home() {
       ))}
     </>
   ) : (
-    <div>Data not available</div>
+    <div>
+      <Subsection
+        data={{
+          name: "project3",
+          type: "media-item",
+          heading: "Gradient Generator",
+          mediaDetails: {
+            type: "image",
+            src: "/images/home-background.jpeg",
+          },
+          description:
+            "This website helps developers to generate Gradients Background.",
+          badges: ["HTML", "CSS", "Javascript"],
+          buttons: [
+            {
+              text: "Visit",
+              link: "https://www.anmolagrawal.dev/gradient-generator/",
+            },
+          ],
+        }}
+      />
+    </div>
   );
 }
