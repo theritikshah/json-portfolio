@@ -40,26 +40,6 @@ img {
      Spacing, Utilities, etc
      ========================================================================== */
 
-div.gap-1 {
-  height: 2rem;
-}
-
-div.gap-2 {
-  height: 4rem;
-}
-
-div.gap-3 {
-  height: 8rem;
-}
-
-div.hr {
-  padding: 0;
-  width: 10%;
-  border: dotted #655c56 6px;
-  border-bottom: none;
-  margin: 2rem auto;
-}
-
 /* @media screen and (max-width: 1024px) {
   .nav-links {
     width: 50%;
