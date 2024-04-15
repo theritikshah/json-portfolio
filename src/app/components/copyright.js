@@ -42,11 +42,6 @@ const ColoredText = styled.span`
   -webkit-text-fill-color: transparent;
 `;
 
-const WhiteLink = styled.span`
-  color: white;
-  text-decoration: underline;
-`;
-
 export default function Copyright({ appName }) {
   return (
     <CopyrightContainer>
@@ -56,10 +51,6 @@ export default function Copyright({ appName }) {
         website is generated using{" "}
         <a href="https://www.anmolagrawal.dev/json-portfolio-generator">
           <ColoredText>JSON Portfolio</ColoredText>
-        </a>
-        &nbsp;by&nbsp;
-        <a href="https://www.anmolagrawal.dev">
-          <WhiteLink>Anmol Agrawal</WhiteLink>
         </a>
       </p>
     </CopyrightContainer>
