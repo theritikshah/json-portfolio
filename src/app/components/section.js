@@ -32,8 +32,8 @@ const SectionWrapper = styled.div`
 
 const StyledHeading = styled.div`
   display: flex;
-  gap: 2rem;
-  padding: ${(props) => (props.$topLevel ? "1rem 10rem" : "0")};
+  gap: 1rem;
+  padding: ${(props) => (props.$topLevel ? "1rem 10rem 3rem" : "0")};
   flex-direction: column;
   text-align: center;
   color: grey;
