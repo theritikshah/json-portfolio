@@ -177,7 +177,11 @@ export default function Header({ brand, sections }) {
               className={`${activeTab === section && "active"} ${
                 isHamActive && "nav-active-li"
               }`}
-              onClick={() => setActiveTab(section)}
+              onClick={() => {
+                if (isHamActive) {
+                  setisHamActive(false);
+                }
+              }}
             >
               <a href={`#${section}`}>{_.startCase(section)}</a>
             </StyledLinks>
