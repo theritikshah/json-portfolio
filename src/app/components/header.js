@@ -1,11 +1,13 @@
 import _ from "lodash";
 import Image from "next/image";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+import styled, { keyframes } from "styled-components";
 
-const StyledHeader = styled.div`
+const StyledNav = styled.nav`
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   background-color: var(--accentLightColor);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);
   min-height: 12vh;
@@ -28,34 +30,136 @@ const BrandName = styled.span`
   color: var(--brandColor);
 `;
 
-const StyledNav = styled.nav`
-  display: grid;
-  place-items: center;
+const fade = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
 
-  ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    list-style: none;
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+`;
+
+const NavLinksContainer = styled.ul`
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  width: 30%;
+  @media screen and (max-width: 1024px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    top: 12vh;
+    background-color: var(--accentLightColor);
+    height: 88vh;
+    right: 0px;
+    flex-direction: column;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+    box-shadow: -10px 20px 20px rgba(0, 0, 0, 0.5);
+    justify-content: flex-start;
+    &.nav-active {
+      transform: translateX(0%);
+    }
   }
 `;
 
 const StyledLinks = styled.li`
-  padding: 0.5rem 1rem;
-
-  a {
-    text-decoration: none;
-    font-weight: bold;
+  display: block;
+  height: 8vh;
+  margin: 0.6rem 1rem;
+  transition: all 0.5s ease;
+  &.active {
     color: var(--primaryColor);
+    border-bottom: 2px solid var(--accentColor);
+  }
+  a {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+  }
+  @media screen and (max-width: 768px) {
+    opacity: 0;
+    height: 15%;
+    display: none;
+    border-bottom: 2px solid var(--accentColor);
+    &:last-child {
+      border-bottom: none;
+    }
+    &.nav-active-li {
+      display: block;
+      animation: ${fade} 0.5s ease-in forwards
+        ${(props) => props.$animationDelay}s;
+    }
+  }
+`;
+
+const Ham = styled.div`
+  display: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  div {
+    background-color: var(--brandColor);
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+  @media screen and (max-width: 768px) {
+    display: block;
+    &.trigger .line1 {
+      transform: rotate(45deg) translate(0px, 6px);
+    }
+
+    &.trigger .line2 {
+      display: none;
+    }
+
+    &.trigger .line3 {
+      transform: rotate(-45deg) translate(0px, -6px);
+    }
   }
 `;
 
 export default function Header({ brand, sections }) {
+  const [activeTab, setActiveTab] = useState(sections[0]);
+  const [isHamActive, setisHamActive] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section.topLevel");
+
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+        if (
+          rect.top <= window.innerHeight / 2 &&
+          rect.bottom >= window.innerHeight / 2
+        ) {
+          setActiveTab(section.id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <StyledHeader>
+      <StyledNav>
         <Brand>
           <Image
             src={brand.image}
@@ -65,16 +169,31 @@ export default function Header({ brand, sections }) {
           />
           <BrandName>{brand.name}</BrandName>
         </Brand>
-        <StyledNav>
-          <ul>
-            {sections.map((section, idx) => (
-              <StyledLinks key={`section_${idx}`}>
-                <a href={`#${section}`}>{_.startCase(section)}</a>
-              </StyledLinks>
-            ))}
-          </ul>
-        </StyledNav>
-      </StyledHeader>
+        <NavLinksContainer className={isHamActive ? "nav-active" : ""}>
+          {sections.map((section, idx) => (
+            <StyledLinks
+              $animationDelay={idx / sections.length + 0.5}
+              key={`section_${idx}`}
+              className={`${activeTab === section && "active"} ${
+                isHamActive && "nav-active-li"
+              }`}
+              onClick={() => setActiveTab(section)}
+            >
+              <a href={`#${section}`}>{_.startCase(section)}</a>
+            </StyledLinks>
+          ))}
+        </NavLinksContainer>
+        <Ham
+          onClick={() => {
+            setisHamActive(!isHamActive);
+          }}
+          className={isHamActive ? "trigger" : ""}
+        >
+          <div className="line1"></div>
+          <div className="line2"></div>
+          <div className="line3"></div>
+        </Ham>
+      </StyledNav>
     </>
   );
 }

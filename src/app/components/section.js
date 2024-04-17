@@ -98,7 +98,7 @@ const StyledButton = styled.a`
 
 export default function Section({ data, $index, $topLevel }) {
   return (
-    <section id={data.name}>
+    <section id={data.name} className={$topLevel ? "topLevel" : ""}>
       <SectionWrapper
         $home={data.type === "home"}
         $index={$index}
