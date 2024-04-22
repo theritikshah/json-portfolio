@@ -1,5 +1,4 @@
 import { promises as fs } from "fs";
-import "./test.css";
 import Script from "next/script";
 
 export const generateMetadata = async () => {

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Header from "./components/header";
 import Section from "./components/section";
 import Footer from "./components/footer";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles, defaultTheme } from "./themeConfig";
 
 export default function Home() {
   const [profileData, setProfileData] = useState(undefined);
@@ -17,7 +19,8 @@ export default function Home() {
   }, []);
 
   return profileData ? (
-    <>
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyles />
       <Header
         brand={profileData.brand}
         sections={profileData.sections?.map((section) => section.name)}
@@ -31,7 +34,7 @@ export default function Home() {
         />
       ))}
       <Footer appName={profileData.appName} data={profileData.footer} />
-    </>
+    </ThemeProvider>
   ) : (
     <div>Site data not available.</div>
   );

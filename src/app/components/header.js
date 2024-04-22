@@ -8,7 +8,7 @@ const StyledNav = styled.nav`
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--accentLightColor);
+  background-color: ${({ theme }) => theme.accentLightColor};
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);
   min-height: 12vh;
   position: fixed;
@@ -27,7 +27,7 @@ const BrandName = styled.span`
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
-  color: var(--brandColor);
+  color: ${({ theme }) => theme.brandColor};
 `;
 
 const fade = keyframes`
@@ -53,7 +53,7 @@ const NavLinksContainer = styled.ul`
   @media screen and (max-width: 768px) {
     position: absolute;
     top: 12vh;
-    background-color: var(--accentLightColor);
+    background-color: ${({ theme }) => theme.accentLightColor};
     height: 88vh;
     right: 0px;
     flex-direction: column;
@@ -74,8 +74,8 @@ const StyledLinks = styled.li`
   margin: 0.6rem 1rem;
   transition: all 0.5s ease;
   &.active {
-    color: var(--primaryColor);
-    border-bottom: 2px solid var(--accentColor);
+    color: ${({ theme }) => theme.primaryColor};
+    border-bottom: 2px solid ${({ theme }) => theme.accentColor};
   }
   a {
     display: grid;
@@ -92,7 +92,7 @@ const StyledLinks = styled.li`
     opacity: 0;
     height: 15%;
     display: none;
-    border-bottom: 2px solid var(--accentColor);
+    border-bottom: 2px solid ${({ theme }) => theme.accentColor};
     &:last-child {
       border-bottom: none;
     }
@@ -109,7 +109,7 @@ const Ham = styled.div`
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   div {
-    background-color: var(--brandColor);
+    background-color: ${({ theme }) => theme.brandColor};
     width: 25px;
     height: 3px;
     margin: 5px;
