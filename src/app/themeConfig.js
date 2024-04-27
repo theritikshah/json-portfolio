@@ -1,12 +1,26 @@
 import { createGlobalStyle } from "styled-components";
 
 export const defaultTheme = {
-  primaryColor: "#ffffff",
-  secondaryColor: "#707070",
-  accentColor: "#5e7656",
-  accentLightColor: "#839f7a",
-  brandColor: "#ffffff",
-  fontFamily: "Noto Sans",
+  default: {
+    primaryTextColor: "#ffffff",
+    secondaryTextColor: "#707070",
+    primaryBackgroundColor: "#ffffff",
+    secondaryBackgroundColor: "#fafafa",
+    accentColor: "#0E46A3",
+    accentSecondaryColor: "#5b94f1",
+    brandColor: "#ffffff",
+    fontFamily: "Noto Sans",
+  },
+  dark: {
+    primaryTextColor: "#ffffff",
+    secondaryTextColor: "#a0a0a0",
+    primaryBackgroundColor: "#000000",
+    secondaryBackgroundColor: "#202020",
+    accentColor: "#5b94f1",
+    accentSecondaryColor: "#0E46A3",
+    brandColor: "#ffffff",
+    fontFamily: "Noto Sans",
+  },
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -24,8 +38,8 @@ export const GlobalStyles = createGlobalStyle`
     }
     
     body {
-        background-color: ${({ theme }) => theme.primaryColor};
-        color: ${({ theme }) => theme.secondaryColor};
+        background-color: ${({ theme }) => theme.primaryTextColor};
+        color: ${({ theme }) => theme.secondaryTextColor};
         font-family: ${({ theme }) => theme.fontFamily}, sans-serif;
         line-height: 1.8rem;
         transition: background-color 0.3s linear;

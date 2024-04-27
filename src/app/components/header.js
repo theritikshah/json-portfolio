@@ -2,13 +2,14 @@ import _ from "lodash";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
+import ThemeModeToggler from "./themeModeToggler";
 
 const StyledNav = styled.nav`
   display: flex;
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  background-color: ${({ theme }) => theme.accentLightColor};
+  background-color: ${({ theme }) => theme.accentSecondaryColor};
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);
   min-height: 12vh;
   position: fixed;
@@ -46,6 +47,7 @@ const NavLinksContainer = styled.ul`
   list-style: none;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   width: 30%;
   @media screen and (max-width: 1024px) {
     width: 50%;
@@ -53,7 +55,7 @@ const NavLinksContainer = styled.ul`
   @media screen and (max-width: 768px) {
     position: absolute;
     top: 12vh;
-    background-color: ${({ theme }) => theme.accentLightColor};
+    background-color: ${({ theme }) => theme.accentSecondaryColor};
     height: 88vh;
     right: 0px;
     flex-direction: column;
@@ -74,7 +76,7 @@ const StyledLinks = styled.li`
   margin: 0.6rem 1rem;
   transition: all 0.5s ease;
   &.active {
-    color: ${({ theme }) => theme.primaryColor};
+    color: ${({ theme }) => theme.primaryTextColor};
     border-bottom: 2px solid ${({ theme }) => theme.accentColor};
   }
   a {
@@ -131,7 +133,13 @@ const Ham = styled.div`
   }
 `;
 
-export default function Header({ brand, sections }) {
+export default function Header({
+  brand,
+  sections,
+  darkMode,
+  setDarkMode,
+  themeTogglerOpted,
+}) {
   const [activeTab, setActiveTab] = useState(sections[0]);
   const [isHamActive, setisHamActive] = useState(false);
   useEffect(() => {
@@ -186,6 +194,9 @@ export default function Header({ brand, sections }) {
               <a href={`#${section}`}>{_.startCase(section)}</a>
             </StyledLinks>
           ))}
+          {themeTogglerOpted && (
+            <ThemeModeToggler darkMode={darkMode} setDarkMode={setDarkMode} />
+          )}
         </NavLinksContainer>
         <Ham
           onClick={() => {

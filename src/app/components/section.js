@@ -9,14 +9,15 @@ const SectionWrapper = styled.div`
   min-height: ${(props) => (props.$topLevel ? "100vh" : "")};
   width: 100%;
   background: ${(props) =>
-    props.$home
-      ? `url('images/home-background.jpeg'), linear-gradient(90deg, ${props.theme.accentLightColor}, ${props.theme.accentColor})`
-      : !props.$index
+    !props.$index
       ? "transparent"
       : props.$index % 2 == 0
-      ? "#fafafa"
-      : "#ffffff"};
-  background-blend-mode: screen;
+      ? props.theme.secondaryBackgroundColor
+      : props.theme.primaryBackgroundColor};
+  background-image: ${(props) =>
+    props.$home
+      ? `linear-gradient(90deg, ${props.theme.accentSecondaryColor}77, ${props.theme.accentColor}77)`
+      : ""};
   background-size: cover;
   ${(props) =>
     props.$home
@@ -36,7 +37,7 @@ const StyledHeading = styled.div`
   padding: ${(props) => (props.$topLevel ? "1rem 10rem 3rem" : "0")};
   flex-direction: column;
   text-align: center;
-  color: ${({ theme }) => theme.secondaryColor};
+  color: ${({ theme }) => theme.secondaryTextColor};
   h1 {
     line-height: 3rem;
     font-size: ${(props) => (props.$home ? "4rem" : "2rem")};
@@ -75,10 +76,10 @@ const Buttons = styled.div`
 const StyledButton = styled.a`
   text-decoration: none;
   font-size: 1.5rem;
-  color: ${({ theme }) => theme.primaryColor};
+  color: ${({ theme }) => theme.primaryTextColor};
   background: linear-gradient(
     163deg,
-    ${({ theme }) => theme.accentLightColor} 50%,
+    ${({ theme }) => theme.accentSecondaryColor} 50%,
     ${({ theme }) => theme.accentColor} 100%
   );
   padding: 0.75rem 1.5rem;
@@ -96,44 +97,53 @@ const StyledButton = styled.a`
   }
 `;
 
+const Background = styled.div`
+  background-image: ${(props) =>
+    props.$home ? `url('${props.theme.homeBackground}')` : ""};
+  background-size: cover;
+  transition: background-image 0.5s;
+`;
+
 export default function Section({ data, $index, $topLevel }) {
   return (
     <section id={data.name} className={$topLevel ? "topLevel" : ""}>
-      <SectionWrapper
-        $home={data.type === "home"}
-        $index={$index}
-        $topLevel={$topLevel}
-      >
-        {data.heading && (
-          <StyledHeading $home={data.type === "home"} $topLevel={$topLevel}>
-            <h1 dangerouslySetInnerHTML={{ __html: data.heading }}></h1>
-            <p>{data.description}</p>
-          </StyledHeading>
-        )}
-        {data.subsections && (
-          <SubsectionContainer $columns={data.columns} $topLevel={$topLevel}>
-            {data.subsections.map((subsection, idx) => (
-              <Subsection
-                key={`${data.name}_subsection_${idx}`}
-                data={subsection}
-                $topLevel={$topLevel}
-              ></Subsection>
-            ))}
-          </SubsectionContainer>
-        )}
-        {data.buttons && (
-          <Buttons>
-            {data.buttons.map((button, idx) => (
-              <StyledButton
-                key={`${data.name}_button_${idx}`}
-                href={button.link}
-              >
-                {button.text}
-              </StyledButton>
-            ))}
-          </Buttons>
-        )}
-      </SectionWrapper>
+      <Background $home={data.type === "home"}>
+        <SectionWrapper
+          $home={data.type === "home"}
+          $index={$index}
+          $topLevel={$topLevel}
+        >
+          {data.heading && (
+            <StyledHeading $home={data.type === "home"} $topLevel={$topLevel}>
+              <h1 dangerouslySetInnerHTML={{ __html: data.heading }}></h1>
+              <p>{data.description}</p>
+            </StyledHeading>
+          )}
+          {data.subsections && (
+            <SubsectionContainer $columns={data.columns} $topLevel={$topLevel}>
+              {data.subsections.map((subsection, idx) => (
+                <Subsection
+                  key={`${data.name}_subsection_${idx}`}
+                  data={subsection}
+                  $topLevel={$topLevel}
+                ></Subsection>
+              ))}
+            </SubsectionContainer>
+          )}
+          {data.buttons && (
+            <Buttons>
+              {data.buttons.map((button, idx) => (
+                <StyledButton
+                  key={`${data.name}_button_${idx}`}
+                  href={button.link}
+                >
+                  {button.text}
+                </StyledButton>
+              ))}
+            </Buttons>
+          )}
+        </SectionWrapper>
+      </Background>
     </section>
   );
 }

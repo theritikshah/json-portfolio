@@ -1,9 +1,29 @@
 {
   "appName": "Anmol Agrawal's Portfolio",
+  "options": {
+    "darkMode": true
+  },
   "theme": {
-    "primaryColor": "",
-    "secondaryColor": "",
-    "font": "Roberto"
+    "default": {
+      "primaryTextColor": "#ffffff",
+      "secondaryTextColor": "#707070",
+      "primaryBackgroundColor": "#ffffff",
+      "secondaryBackgroundColor": "#fafafa",
+      "accentColor": "#5e7656",
+      "accentSecondaryColor": "#839f7a",
+      "brandColor": "#ffffff",
+      "fontFamily": "Noto Sans"
+    },
+    "dark": {
+      "primaryTextColor": "#ffffff",
+      "secondaryTextColor": "#a0a0a0",
+      "primaryBackgroundColor": "#000000",
+      "secondaryBackgroundColor": "#202020",
+      "accentColor": "#505050",
+      "accentSecondaryColor": "#050505",
+      "brandColor": "#ffffff",
+      "fontFamily": "Noto Sans"
+    }
   },
   "meta": {
     "title": "Anmol Agrawal's Portfolio",
