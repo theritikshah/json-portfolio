@@ -128,7 +128,7 @@ export default function Section({ data, $index, $topLevel }) {
         {data.heading && (
           <StyledHeading $home={data.type === "home"} $topLevel={$topLevel}>
             <h1 dangerouslySetInnerHTML={{ __html: data.heading }}></h1>
-            <p>{data.description}</p>
+            <p dangerouslySetInnerHTML={{ __html: data.description }}></p>
           </StyledHeading>
         )}
         {data.subsections && (
