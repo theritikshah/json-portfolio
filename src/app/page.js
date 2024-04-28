@@ -10,7 +10,8 @@ export default function Home() {
   const [profileData, setProfileData] = useState(undefined);
   const [theme, setTheme] = useState({});
   const [darkMode, setDarkMode] = useState(
-    window.matchMedia("(prefers-color-scheme: dark)").matches
+    typeof window !== "undefined" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 
   useEffect(() => {
