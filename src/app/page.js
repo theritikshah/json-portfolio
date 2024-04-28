@@ -9,7 +9,9 @@ import { GlobalStyles, presetThemes } from "./themeConfig";
 export default function Home() {
   const [profileData, setProfileData] = useState(undefined);
   const [theme, setTheme] = useState({});
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
 
   useEffect(() => {
     fetch("data/profile.json")
