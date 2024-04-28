@@ -1,25 +1,49 @@
 import { createGlobalStyle } from "styled-components";
 
-export const defaultTheme = {
+export const presetThemes = {
   default: {
-    primaryTextColor: "#ffffff",
-    secondaryTextColor: "#707070",
-    primaryBackgroundColor: "#ffffff",
-    secondaryBackgroundColor: "#fafafa",
-    accentColor: "#0E46A3",
-    accentSecondaryColor: "#5b94f1",
-    brandColor: "#ffffff",
-    fontFamily: "Noto Sans",
+    default: {
+      primaryTextColor: "#ffffff",
+      secondaryTextColor: "#707070",
+      primaryBackgroundColor: "#ffffff",
+      secondaryBackgroundColor: "#fafafa",
+      accentColor: "#0E46A3",
+      accentSecondaryColor: "#5b94f1",
+      brandColor: "#ffffff",
+      fontFamily: "Noto Sans",
+    },
+    dark: {
+      primaryTextColor: "#ffffff",
+      secondaryTextColor: "#a0a0a0",
+      primaryBackgroundColor: "#000000",
+      secondaryBackgroundColor: "#202020",
+      accentColor: "#5b94f1",
+      accentSecondaryColor: "#0E46A3",
+      brandColor: "#ffffff",
+      fontFamily: "Noto Sans",
+    },
   },
-  dark: {
-    primaryTextColor: "#ffffff",
-    secondaryTextColor: "#a0a0a0",
-    primaryBackgroundColor: "#000000",
-    secondaryBackgroundColor: "#202020",
-    accentColor: "#5b94f1",
-    accentSecondaryColor: "#0E46A3",
-    brandColor: "#ffffff",
-    fontFamily: "Noto Sans",
+  blackberry: {
+    default: {
+      primaryTextColor: "#ffffff",
+      secondaryTextColor: "#707070",
+      primaryBackgroundColor: "#ffffff",
+      secondaryBackgroundColor: "#fafafa",
+      accentColor: "#704264",
+      accentSecondaryColor: "#49243E",
+      brandColor: "#ffffff",
+      fontFamily: "Noto Sans",
+    },
+    dark: {
+      primaryTextColor: "#ffffff",
+      secondaryTextColor: "#a0a0a0",
+      primaryBackgroundColor: "#000000",
+      secondaryBackgroundColor: "#202020",
+      accentColor: "#49243E",
+      accentSecondaryColor: "#704264",
+      brandColor: "#ffffff",
+      fontFamily: "Noto Sans",
+    },
   },
 };
 
@@ -53,4 +77,4 @@ export const GlobalStyles = createGlobalStyle`
     img {
         max-width: 100%;
     }
-`;
+    `;

@@ -4,11 +4,11 @@ import Header from "./components/header";
 import Section from "./components/section";
 import Footer from "./components/footer";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyles, defaultTheme } from "./themeConfig";
+import { GlobalStyles, presetThemes } from "./themeConfig";
 
 export default function Home() {
   const [profileData, setProfileData] = useState(undefined);
-  const [theme, setTheme] = useState(defaultTheme);
+  const [theme, setTheme] = useState({});
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -17,7 +17,14 @@ export default function Home() {
         return response.json();
       })
       .then((data) => {
-        setTheme(data.theme);
+        const choosenTheme = data.options?.theme;
+        if (choosenTheme === "custom") {
+          setTheme(data.theme);
+        } else if (choosenTheme in presetThemes) {
+          setTheme(presetThemes[choosenTheme]);
+        } else {
+          setTheme(presetThemes.default);
+        }
         setProfileData(data);
       });
   }, []);

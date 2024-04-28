@@ -1,7 +1,8 @@
 {
   "appName": "Anmol Agrawal's Portfolio",
   "options": {
-    "darkMode": true
+    "darkMode": true,
+    "theme": "blackberry"
   },
   "theme": {
     "default": {
