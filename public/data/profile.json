@@ -54,7 +54,7 @@
       "name": "home",
       "type": "home",
       "columns": 1,
-      "heading": "Hey, I'm <span style='color:#333;'>Anmol&nbsp;Agrawal</span>",
+      "heading": "Hey, I'm <span class='accent-text'>Anmol&nbsp;Agrawal</span>",
       "description": "I design and code beautifully simple things, and I love what I do.",
       "buttons": [
         {

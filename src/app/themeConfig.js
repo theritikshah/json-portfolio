@@ -77,4 +77,35 @@ export const GlobalStyles = createGlobalStyle`
     img {
         max-width: 100%;
     }
-    `;
+
+    .primary-text{
+      color: ${({ theme }) => theme.primaryTextColor};
+    }
+    .secondary-text{
+      color: ${({ theme }) => theme.secondaryTextColor};
+    }
+    .primary-background{
+      background: ${({ theme }) => theme.primaryBackgroundColor};
+    }
+    .secondary-background{
+      background: ${({ theme }) => theme.secondaryBackgroundColor};
+    }
+    .accent-text{
+      color: ${({ theme }) => theme.accentColor};
+    }
+    .accent-background{
+      background: ${({ theme }) => theme.accentColor};
+    }
+    .accent-secondary-text{
+      color: ${({ theme }) => theme.accentSecondaryColor};
+    }
+    .accent-secondary-background{
+      background: ${({ theme }) => theme.accentSecondaryColor};
+    }
+    .brand-text{
+      color: ${({ theme }) => theme.brandColor};
+    }
+    .brand-background{
+      background: ${({ theme }) => theme.brandColor};
+    }
+`;
