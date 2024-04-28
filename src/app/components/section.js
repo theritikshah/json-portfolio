@@ -39,6 +39,7 @@ const SectionWrapper = styled.div`
     )} 0px, transparent 50%)`
       : ""};
   background-size: cover;
+  transition: all 0.5s;
   ${(props) =>
     props.$home
       ? `
