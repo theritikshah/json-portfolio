@@ -35,9 +35,7 @@ export default function Home() {
     <ThemeProvider
       theme={{
         ...(darkMode ? theme.dark : theme.default),
-        homeBackground: `images/mesh-gradient-${
-          darkMode ? "dark" : "light"
-        }.png`,
+        isDarkMode: darkMode,
       }}
     >
       <GlobalStyles />

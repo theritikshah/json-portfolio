@@ -1,5 +1,14 @@
 import styled from "styled-components";
 import Subsection from "./subsection";
+import convert from "color-convert";
+
+const hexToHSLString = (hex) =>
+  convert.hex
+    .hsl(hex)
+    .map((value, index) =>
+      index === 0 ? `hsl(${value}` : index === 2 ? `${value}%)` : `${value}%`
+    )
+    .join(",");
 
 const SectionWrapper = styled.div`
   display: flex;
@@ -9,14 +18,25 @@ const SectionWrapper = styled.div`
   min-height: ${(props) => (props.$topLevel ? "100vh" : "")};
   width: 100%;
   background: ${(props) =>
-    !props.$index
+    props?.$index === undefined
       ? "transparent"
+      : props.$home
+      ? props.theme.isDarkMode
+        ? "black"
+        : "white"
       : props.$index % 2 == 0
       ? props.theme.secondaryBackgroundColor
       : props.theme.primaryBackgroundColor};
   background-image: ${(props) =>
     props.$home
-      ? `linear-gradient(90deg, ${props.theme.accentSecondaryColor}77, ${props.theme.accentColor}77)`
+      ? `radial-gradient(
+      at 1% 2%,
+      ${hexToHSLString(props.theme.accentColor)} 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 99% 98%, ${hexToHSLString(
+      props.theme.accentSecondaryColor
+    )} 0px, transparent 50%)`
       : ""};
   background-size: cover;
   ${(props) =>
@@ -97,53 +117,44 @@ const StyledButton = styled.a`
   }
 `;
 
-const Background = styled.div`
-  background-image: ${(props) =>
-    props.$home ? `url('${props.theme.homeBackground}')` : ""};
-  background-size: cover;
-  transition: background-image 0.5s;
-`;
-
 export default function Section({ data, $index, $topLevel }) {
   return (
     <section id={data.name} className={$topLevel ? "topLevel" : ""}>
-      <Background $home={data.type === "home"}>
-        <SectionWrapper
-          $home={data.type === "home"}
-          $index={$index}
-          $topLevel={$topLevel}
-        >
-          {data.heading && (
-            <StyledHeading $home={data.type === "home"} $topLevel={$topLevel}>
-              <h1 dangerouslySetInnerHTML={{ __html: data.heading }}></h1>
-              <p>{data.description}</p>
-            </StyledHeading>
-          )}
-          {data.subsections && (
-            <SubsectionContainer $columns={data.columns} $topLevel={$topLevel}>
-              {data.subsections.map((subsection, idx) => (
-                <Subsection
-                  key={`${data.name}_subsection_${idx}`}
-                  data={subsection}
-                  $topLevel={$topLevel}
-                ></Subsection>
-              ))}
-            </SubsectionContainer>
-          )}
-          {data.buttons && (
-            <Buttons>
-              {data.buttons.map((button, idx) => (
-                <StyledButton
-                  key={`${data.name}_button_${idx}`}
-                  href={button.link}
-                >
-                  {button.text}
-                </StyledButton>
-              ))}
-            </Buttons>
-          )}
-        </SectionWrapper>
-      </Background>
+      <SectionWrapper
+        $home={data.type === "home"}
+        $index={$index}
+        $topLevel={$topLevel}
+      >
+        {data.heading && (
+          <StyledHeading $home={data.type === "home"} $topLevel={$topLevel}>
+            <h1 dangerouslySetInnerHTML={{ __html: data.heading }}></h1>
+            <p>{data.description}</p>
+          </StyledHeading>
+        )}
+        {data.subsections && (
+          <SubsectionContainer $columns={data.columns} $topLevel={$topLevel}>
+            {data.subsections.map((subsection, idx) => (
+              <Subsection
+                key={`${data.name}_subsection_${idx}`}
+                data={subsection}
+                $topLevel={$topLevel}
+              ></Subsection>
+            ))}
+          </SubsectionContainer>
+        )}
+        {data.buttons && (
+          <Buttons>
+            {data.buttons.map((button, idx) => (
+              <StyledButton
+                key={`${data.name}_button_${idx}`}
+                href={button.link}
+              >
+                {button.text}
+              </StyledButton>
+            ))}
+          </Buttons>
+        )}
+      </SectionWrapper>
     </section>
   );
 }
