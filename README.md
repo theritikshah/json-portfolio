@@ -136,7 +136,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <th>Description</th>
       <th>Required</th>
       <th>Possible values</th>
-      <th>Default</th>
       <th>Example</th>
     </tr>
   </thead>
@@ -146,7 +145,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Title to be seen on Browser's tab</td>
       <td>No (but recommended)</td>
       <td>Any String</td>
-      <td>-</td>
       <td>Raj's Portfolio</td>
     </tr>
     <tr>
@@ -154,7 +152,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Description of website (will be added in meta tags)</td>
       <td>No (but recommended)</td>
       <td>Any String</td>
-      <td>-</td>
       <td>Portfolio of Full Stack Developer - Raj</td>
     </tr>
     <tr>
@@ -162,7 +159,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>creator of website (will be added in meta tags)</td>
       <td>No (but recommended)</td>
       <td>Any String (Your Name)</td>
-      <td>-</td>
       <td>Raj</td>
     </tr>
     <tr>
@@ -170,7 +166,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>keywords of website to improve SEO (will be added in meta tags)</td>
       <td>No (but recommended)</td>
       <td>Array of String</td>
-      <td>-</td>
       <td>["Raj", "Developer", "Software Developer", "Full Stack Developer"]</td>
     </tr>
     <tr>
@@ -178,7 +173,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Icons of website (will be added in head for fevicon for different devices)</td>
       <td>No (but recommended)</td>
       <td>JSON Object</td>
-      <td>-</td>
       <td>
 
 ```json
@@ -200,7 +194,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Robots setting of website (will be added in meta tags)</td>
       <td>No (but recommended)</td>
       <td>JSON Object</td>
-      <td>-</td>
       <td>
 
 ```json
@@ -234,7 +227,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <th>Description</th>
       <th>Required</th>
       <th>Possible values</th>
-      <th>Default</th>
       <th>Example</th>
     </tr>
   </thead>
@@ -244,7 +236,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Name of the section</td>
       <td>Yes</td>
       <td>String</td>
-      <td>-</td>
       <td>home</td>
     </tr>
     <tr>
@@ -252,7 +243,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Type of the section. "home" is special section type with background image</td>
       <td>Yes</td>
       <td>home / default</td>
-      <td>-</td>
       <td>about-us</td>
     </tr>
 
@@ -270,7 +260,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <th>Description</th>
       <th>Required</th>
       <th>Possible values</th>
-      <th>Default</th>
       <th>Example</th>
     </tr>
   </thead>
@@ -280,7 +269,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Heading of the footer</td>
       <td>Yes</td>
       <td>String</td>
-      <td>-</td>
       <td>Raj</td>
     </tr>
     <tr>
@@ -288,7 +276,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Content of the footer</td>
       <td>Yes</td>
       <td>String (HTML)</td>
-      <td>-</td>
       <td>
         &lt;p&gt;Let's collaborate and bring your ideas to life!&lt;/p&gt;
       </td>
@@ -298,7 +285,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Your socials links</td>
       <td>No</td>
       <td>Array of Objects (icon should be the classes given by fontawesome)</td>
-      <td>-</td>
       <td>
 
 ```json
