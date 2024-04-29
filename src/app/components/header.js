@@ -169,13 +169,15 @@ export default function Header({
     <>
       <StyledNav>
         <Brand>
-          <Image
-            src={brand.image}
-            alt={`${brand.name}_logo`}
-            width={60}
-            height={60}
-          />
-          <BrandName>{brand.name}</BrandName>
+          {brand.image && (
+            <Image
+              src={brand.image}
+              alt={`${brand.name}_logo`}
+              width={60}
+              height={60}
+            />
+          )}
+          {brand.name && <BrandName>{brand.name}</BrandName>}
         </Brand>
         <NavLinksContainer className={isHamActive ? "nav-active" : ""}>
           {sections.map((section, idx) => (
