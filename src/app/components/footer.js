@@ -38,30 +38,32 @@ const Socials = styled.div`
 export default function Footer({ appName, data }) {
   return (
     <StyledFooter>
-      <FooterMain>
-        <Subsection
-          data={{
-            name: "footer",
-            type: "paragraph",
-            heading: data.heading,
-            content: data.content,
-          }}
-        />
-        {data.socials && (
-          <Socials>
-            <h3>Socials</h3>
-            <ul>
-              {data.socials.map((social, idx) => (
-                <li key={`social_${social.name}_link_${idx}`}>
-                  <a href={social.link}>
-                    <i className={social.icon}></i>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </Socials>
-        )}
-      </FooterMain>
+      {data !== undefined && (
+        <FooterMain>
+          <Subsection
+            data={{
+              name: "footer",
+              type: "paragraph",
+              heading: data.heading,
+              content: data.content,
+            }}
+          />
+          {data.socials && (
+            <Socials>
+              <h3>Socials</h3>
+              <ul>
+                {data.socials.map((social, idx) => (
+                  <li key={`social_${social.name}_link_${idx}`}>
+                    <a href={social.link}>
+                      <i className={social.icon}></i>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Socials>
+          )}
+        </FooterMain>
+      )}
       <Copyright appName={appName} />
     </StyledFooter>
   );
