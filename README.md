@@ -109,7 +109,7 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>-</td>
       <td>
 
-[See Section Structure Table](#Section-Structure)</td>
+[See Section Structure Table](#Sections-Structure)</td>
 
   </tr>
     <tr>
@@ -120,7 +120,7 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>-</td>
       <td>
 
-[See Footer Structure Table](#Section-Structure)</td>
+[See Footer Structure Table](#Footer-Structure)</td>
 
   </tr>
 
