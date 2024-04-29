@@ -10,7 +10,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <th>Description</th>
       <th>Required</th>
       <th>Possible values</th>
-      <th>Default</th>
       <th>Example</th>
     </tr>
   </thead>
@@ -20,15 +19,13 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Name of the application</td>
       <td>Yes</td>
       <td>Any String</td>
-      <td>-</td>
       <td>"Raj's Portfolio"</td>
     </tr>
     <tr>
       <td>options.darkMode</td>
       <td>Enable Toggler for dark mode: default mode will be as per users device setting</td>
       <td>No</td>
-      <td>true / false</td>
-      <td>true</td>
+      <td>true / false [Default: true]</td>
       <td>true</td>
     </tr>
     <tr>
@@ -36,7 +33,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Theme of the application : use "custom" for your custom theme or use preset themes</td>
       <td>No</td>
       <td>"custom", "default", "blueberry", "coconut", "dragonfruit", "grape", "kiwi", "mango", "pear", "pineapple", "plum", "tangerine", "rambutan"</td>
-      <td>"default" theme</td>
       <td>"coconut"</td>
     </tr>
     <tr>
@@ -44,7 +40,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Custom Theme</td>
       <td>No</td>
       <td>JSON Object with structure as in example. <br/>Font value: Any Google Font</td>
-      <td>-</td>
       <td>
 
 ```json
@@ -79,7 +74,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Brand Name: will be render at Header of Page</td>
       <td>No | but recommended set atlease one of name or image</td>
       <td>Any String</td>
-      <td>-</td>
       <td>"Raj"</td>
     </tr>
     <tr>
@@ -87,7 +81,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Brand Logo: will be render at Header of Page</td>
       <td>No | but recommended set atlease one of name or image</td>
       <td>Path of image: Can be absolute or relative(Just upload image in public folder of repo)</td>
-      <td>-</td>
       <td>"/images/raj.png"</td>
     </tr>
     <tr>
@@ -95,7 +88,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>meta data for your app</td>
       <td>No</td>
       <td>JSON Object</td>
-      <td>-</td>
       <td>
 
 [See Meta Structure Table](#Meta-Structure)</td>
@@ -106,7 +98,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Array of sections in the application</td>
       <td>No</td>
       <td>Array of Objects</td>
-      <td>-</td>
       <td>
 
 [See Section Structure Table](#Sections-Structure)</td>
@@ -117,7 +108,6 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Footer section of the application</td>
       <td>No</td>
       <td>JSON Object</td>
-      <td>-</td>
       <td>
 
 [See Footer Structure Table](#Footer-Structure)</td>
