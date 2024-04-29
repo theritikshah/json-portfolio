@@ -1,101 +1,398 @@
 #Portfolio Website
 A open source repo of portfolio website, where user can customise the website just by updating their data in JSON file.
 
-JSON Structure:-
+## JSON Structure
 
-- theme
-  - primaryColor
-  - secondaryColor
-  - font
-- meta
-  - title
-  - description
-  - creator
-  - keywords // arrays
-  - icons
-  - robots
-- nav
-  - image
-  - name
-- sections //array
-  - name
-  - type
-  - columns
-    - Possible Values: 1, 2
-    - Default: 1
-  - heading
-  - description
-  - buttons
-  - subsections //array
-    - name
-    - type
-    - columns
-      - Possible Values: 1, 2
-      - Default: 1
-    - heading
-    - description
-    - buttons
-    - other fields depend on type
-- footer
-- socialSidebar
-
-JSON Example:-
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Possible values</th>
+      <th>Default</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>appName</td>
+      <td>Name of the application</td>
+      <td>Yes</td>
+      <td>Any String</td>
+      <td>-</td>
+      <td>"Raj's Portfolio"</td>
+    </tr>
+    <tr>
+      <td>options.darkMode</td>
+      <td>Enable Toggler for dark mode: default mode will be as per users device setting</td>
+      <td>No</td>
+      <td>true / false</td>
+      <td>true</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>options.theme</td>
+      <td>Theme of the application : use "custom" for your custom theme or use preset themes</td>
+      <td>No</td>
+      <td>"custom", "default", "blueberry", "coconut", "dragonfruit", "grape", "kiwi", "mango", "pear", "pineapple", "plum", "tangerine", "rambutan"</td>
+      <td>"default" theme</td>
+      <td>"coconut"</td>
+    </tr>
+    <tr>
+      <td>theme</td>
+      <td>Custom Theme</td>
+      <td>No</td>
+      <td>JSON Object with structure as in example. <br/>Font value: Any Google Font</td>
+      <td>-</td>
+      <td>
 
 ```json
 {
+  "default": {
+    "primaryTextColor": "#ffffff",
+    "secondaryTextColor": "#707070",
+    "primaryBackgroundColor": "#ffffff",
+    "secondaryBackgroundColor": "#fafafa",
+    "accentColor": "#ff6347",
+    "accentSecondaryColor": "#ffa07a",
+    "brandColor": "#ffffff",
+    "fontFamily": "Roboto"
+  },
+  "dark": {
+    "primaryTextColor": "#ffffff",
+    "secondaryTextColor": "#a0a0a0",
+    "primaryBackgroundColor": "#000000",
+    "secondaryBackgroundColor": "#202020",
+    "accentColor": "#505050",
+    "accentSecondaryColor": "#050505",
+    "brandColor": "#ffffff",
+    "fontFamily": "Roboto"
+  }
+}
+```
+
+  </td>
+    </tr>
+    <tr>
+      <td>brand.name</td>
+      <td>Brand Name: will be render at Header of Page</td>
+      <td>No | but recommended set atlease one of name or image</td>
+      <td>Any String</td>
+      <td>-</td>
+      <td>"Raj"</td>
+    </tr>
+    <tr>
+      <td>brand.image</td>
+      <td>Brand Logo: will be render at Header of Page</td>
+      <td>No | but recommended set atlease one of name or image</td>
+      <td>Path of image: Can be absolute or relative(Just upload image in public folder of repo)</td>
+      <td>-</td>
+      <td>"/images/raj.png"</td>
+    </tr>
+    <tr>
+      <td>meta</td>
+      <td>meta data for your app</td>
+      <td>No</td>
+      <td>JSON Object</td>
+      <td>-</td>
+      <td>
+
+[See Meta Structure Table](#Meta-Structure)</td>
+
+  </tr>
+    <tr>
+      <td>sections</td>
+      <td>Array of sections in the application</td>
+      <td>No</td>
+      <td>Array of Objects</td>
+      <td>-</td>
+      <td>
+
+[See Section Structure Table](#Section-Structure)</td>
+
+  </tr>
+    <tr>
+      <td>footer</td>
+      <td>Footer section of the application</td>
+      <td>No</td>
+      <td>JSON Object</td>
+      <td>-</td>
+      <td>
+
+[See Footer Structure Table](#Section-Structure)</td>
+
+  </tr>
+
+  </tbody>
+</table>
+
+### Meta-Structure
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Possible values</th>
+      <th>Default</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td>Title to be seen on Browser's tab</td>
+      <td>No (but recommended)</td>
+      <td>Any String</td>
+      <td>-</td>
+      <td>Raj's Portfolio</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Description of website (will be added in meta tags)</td>
+      <td>No (but recommended)</td>
+      <td>Any String</td>
+      <td>-</td>
+      <td>Portfolio of Full Stack Developer - Raj</td>
+    </tr>
+    <tr>
+      <td>creator</td>
+      <td>creator of website (will be added in meta tags)</td>
+      <td>No (but recommended)</td>
+      <td>Any String (Your Name)</td>
+      <td>-</td>
+      <td>Raj</td>
+    </tr>
+    <tr>
+      <td>keywords</td>
+      <td>keywords of website to improve SEO (will be added in meta tags)</td>
+      <td>No (but recommended)</td>
+      <td>Array of String</td>
+      <td>-</td>
+      <td>["Raj", "Developer", "Software Developer", "Full Stack Developer"]</td>
+    </tr>
+    <tr>
+      <td>icons</td>
+      <td>Icons of website (will be added in head for fevicon for different devices)</td>
+      <td>No (but recommended)</td>
+      <td>JSON Object</td>
+      <td>-</td>
+      <td>
+
+```json
+{
+  "icon": "https://placehold.co/60x60/ff6347/white/png?text=R",
+  "shortcut": "/shortcut-icon.png",
+  "apple": "/apple-icon.png",
+  "other": {
+    "rel": "apple-touch-icon-precomposed",
+    "url": "/apple-touch-icon-precomposed.png"
+  }
+}
+```
+
+  </td>
+    </tr>
+    <tr>
+      <td>robots</td>
+      <td>Robots setting of website (will be added in meta tags)</td>
+      <td>No (but recommended)</td>
+      <td>JSON Object</td>
+      <td>-</td>
+      <td>
+
+```json
+{
+  "index": false,
+  "follow": true,
+  "nocache": true,
+  "googleBot": {
+    "index": true,
+    "follow": false,
+    "noimageindex": true,
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1
+  }
+}
+```
+
+  </td>
+    </tr>
+
+  </tbody>
+</table>
+
+### Sections-Structure
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Possible values</th>
+      <th>Default</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>Name of the section</td>
+      <td>Yes</td>
+      <td>String</td>
+      <td>-</td>
+      <td>home</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>Type of the section. "home" is special section type with background image</td>
+      <td>Yes</td>
+      <td>home / default</td>
+      <td>-</td>
+      <td>about-us</td>
+    </tr>
+
+[comment]: <> (Need to add all the options in section)
+
+  </tbody>
+</table>
+
+### Footer-Structure
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Possible values</th>
+      <th>Default</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>heading</td>
+      <td>Heading of the footer</td>
+      <td>Yes</td>
+      <td>String</td>
+      <td>-</td>
+      <td>Raj</td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td>Content of the footer</td>
+      <td>Yes</td>
+      <td>String (HTML)</td>
+      <td>-</td>
+      <td>
+        &lt;p&gt;Let's collaborate and bring your ideas to life!&lt;/p&gt;
+      </td>
+    </tr>
+    <tr>
+      <td>socials</td>
+      <td>Your socials links</td>
+      <td>No</td>
+      <td>Array of Objects (icon should be the classes given by fontawesome)</td>
+      <td>-</td>
+      <td>
+
+```json
+[
+  {
+    "name": "Linkedin",
+    "icon": "fa-brands fa-linkedin-in",
+    "link": "https://www.linkedin.com/in/raj-example"
+  },
+  {
+    "name": "Github",
+    "icon": "fa-brands fa-github",
+    "link": "https://github.com/raj-example"
+  },
+  {
+    "name": "Mail ID",
+    "icon": "fa-solid fa-envelope",
+    "link": "mailto:raj@example.com"
+  }
+]
+```
+
+  </td>
+    </tr>
+  </tbody>
+</table>
+
+## JSON Example
+
+```json
+{
+  "appName": "Raj's Portfolio",
+  "options": {
+    "darkMode": true,
+    "theme": "custom"
+  },
   "theme": {
-    "primaryColor": "",
-    "secondaryColor": "",
-    "font": "Roberto"
+    "default": {
+      "primaryTextColor": "#ffffff",
+      "secondaryTextColor": "#707070",
+      "primaryBackgroundColor": "#ffffff",
+      "secondaryBackgroundColor": "#fafafa",
+      "accentColor": "#ff6347",
+      "accentSecondaryColor": "#ffa07a",
+      "brandColor": "#ffffff",
+      "fontFamily": "Roboto"
+    },
+    "dark": {
+      "primaryTextColor": "#ffffff",
+      "secondaryTextColor": "#a0a0a0",
+      "primaryBackgroundColor": "#000000",
+      "secondaryBackgroundColor": "#202020",
+      "accentColor": "#505050",
+      "accentSecondaryColor": "#050505",
+      "brandColor": "#ffffff",
+      "fontFamily": "Roboto"
+    }
   },
   "meta": {
-    "title": "Anmol Agrawal's Portfolio",
-    "description": "Portfolio of Full Stack Developer - Anmol Agrawal",
+    "title": "Raj's Portfolio",
+    "description": "Portfolio of Full Stack Developer - Raj",
+    "creator": "Raj",
     "keywords": [
-      "Anmol",
-      "Anmol Agrawal",
+      "Raj",
       "Developer",
       "Software Developer",
       "Full Stack Developer"
     ],
     "icons": {
-      "icon": "https://placehold.co/60x60/A5DD9B/white/png?text=AA",
-      "shortcut": "/shortcut-icon.png",
-      "apple": "/apple-icon.png",
-      "other": {
-        "rel": "apple-touch-icon-precomposed",
-        "url": "/apple-touch-icon-precomposed.png"
-      }
+      "icon": "https://placehold.co/60x60/ff6347/white/png?text=R"
     },
     "robots": {
-      "index": false,
-      "follow": true,
-      "nocache": true,
-      "googleBot": {
-        "index": true,
-        "follow": false,
-        "noimageindex": true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1
-      }
+      "index": true,
+      "follow": true
     }
   },
-  "nav": {
-    "image": "",
-    "name": "Anmol Agrawal"
+  "brand": {
+    "name": "Raj"
   },
   "sections": [
     {
       "name": "home",
       "type": "home",
       "columns": 1,
-      "heading": "Hey, I'm Anmol Agrawal",
-      "description": "In non sunt nulla voluptate ut do eiusmod et nostrud consequat proident deserunt excepteur.",
+      "heading": "Hey, I'm <span class='accent-text'>Raj</span>",
+      "description": "I develop innovative software solutions and thrive on turning ideas into reality.",
       "buttons": [
         {
           "text": "Projects",
-          "link": ""
+          "link": "#projects"
+        },
+        {
+          "text": "Contact Me",
+          "link": "mailto:raj@example.com"
         }
       ]
     },
@@ -104,21 +401,34 @@ JSON Example:-
       "type": "default",
       "columns": 2,
       "heading": "About Me",
-      "description": "Consequat veniam et reprehenderit in in non. Non ipsum elit dolor cupidatat laborum esse aute irure exercitation nisi. Do velit culpa in occaecat anim ut id eu sit. Ad quis duis commodo in veniam nostrud cupidatat id sunt.",
+      "description": "Get to know me better and explore my skills and experience.",
       "subsections": [
         {
           "name": "about-me",
           "type": "paragraph",
-          "columns": 1,
           "heading": "More about me...",
-          "content": "Laborum reprehenderit cillum culpa enim officia ut magna sunt eiusmod ad excepteur quis laboris. Consequat duis ea commodo occaecat sunt commodo mollit. Dolor ipsum proident eu ullamco eu Lorem aliqua. \nExercitation enim proident duis aliqua commodo nulla elit nostrud ea ex aliqua. Eiusmod voluptate do nostrud proident duis proident non do esse non nulla. Consectetur in excepteur ad adipisicing. Dolore id velit elit qui enim occaecat. Nostrud nulla eu eiusmod veniam anim pariatur culpa mollit labore. \nExcepteur dolore sit ex consectetur consectetur ea qui ut irure consequat in do est. Cupidatat aliqua velit qui laborum officia. Nulla esse laborum minim voluptate."
+          "content": "<p>I'm a passionate Full Stack Developer with a focus on creating scalable and efficient web applications. I enjoy working with cutting-edge technologies to solve complex problems and deliver exceptional user experiences.</p><br><p>Currently, I'm seeking exciting opportunities to contribute my skills and expertise to innovative projects. Let's connect and build something amazing together!</p>"
         },
         {
           "name": "skills",
           "type": "badges",
-          "columns": 1,
           "heading": "Skills",
-          "badges": ["HTML", "CSS", "Javascript", "ReactJS", "NodeJS"]
+          "badges": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "MySQL",
+            "Python",
+            "Django",
+            "RESTful APIs",
+            "Git",
+            "Responsive Design",
+            "Problem Solving"
+          ]
         }
       ]
     },
@@ -127,43 +437,103 @@ JSON Example:-
       "type": "default",
       "columns": 1,
       "heading": "Projects",
-      "description": "Dolore dolor ex reprehenderit ex ullamco reprehenderit excepteur eiusmod sunt cupidatat adipisicing duis nisi. Excepteur quis tempor eiusmod fugiat amet nulla mollit eu duis eiusmod. Quis ex cupidatat dolor ea cillum consectetur minim incididunt aute qui aliqua magna ex dolor. Aliqua id velit qui officia reprehenderit ea excepteur sit sunt nulla excepteur irure. Aliquip laborum quis exercitation non amet deserunt ea aliquip dolor ad dolore velit enim in. Do ipsum id do non duis voluptate.",
+      "description": "Explore some of my recent projects.",
       "subsections": [
         {
           "name": "project1",
           "type": "media-item",
-          "columns": 2,
-          "heading": "Project 1",
-          "media-details": {
-            "type": "image",
-            "src": ""
+          "heading": "EcoMarket",
+          "mediaDetails": {
+            "type": "video",
+            "src": "videos/placeholder.webm"
           },
-          "description": "Ad aliquip labore enim proident pariatur duis ex et veniam. Mollit ipsum sunt ex esse do laborum. Do proident ullamco dolor mollit proident ullamco fugiat culpa cillum commodo incididunt sint laborum. Et consectetur velit ut ex eiusmod Lorem irure qui aute laborum dolor. Exercitation dolor exercitation ut in elit dolor nisi. Amet officia aliquip in nisi mollit nulla veniam commodo nostrud."
+          "description": "An e-commerce platform for sustainable products. Users can browse, purchase, and review eco-friendly items.",
+          "badges": [
+            "React",
+            "Node.js",
+            "MongoDB",
+            "Express.js",
+            "RESTful API"
+          ],
+          "buttons": [
+            {
+              "text": "Visit",
+              "link": "https://www.ecomarket.example"
+            }
+          ]
+        },
+        {
+          "type": "hr"
         },
         {
           "name": "project2",
           "type": "media-item",
-          "columns": 2,
-          "heading": "Project 2",
-          "media-details": {
-            "type": "video",
-            "src": ""
+          "heading": "Healthify",
+          "mediaDetails": {
+            "type": "image-slide",
+            "src": [
+              "images/healthify_1.svg",
+              "images/healthify_2.svg",
+              "images/healthify_3.svg"
+            ]
           },
-          "description": "Sint sint id cillum dolore. Commodo esse aliquip cupidatat in culpa nulla commodo culpa non elit. Ex occaecat aliqua anim ex aliqua ullamco enim ea exercitation. Laborum commodo laboris ad nulla sint ullamco ipsum officia exercitation commodo. Ut est labore irure esse dolore esse. Voluptate veniam commodo nulla commodo eu ex qui qui culpa adipisicing id ut voluptate. Lorem dolor laborum elit officia ipsum anim dolore ipsum commodo consectetur eu."
+          "description": "A health and fitness tracking application. Users can set goals, track progress, and receive personalized recommendations.",
+          "badges": ["React", "Redux", "Firebase", "Material-UI"],
+          "buttons": [
+            {
+              "text": "Visit",
+              "link": "https://www.healthify.example"
+            }
+          ]
+        },
+        {
+          "type": "hr"
         },
         {
           "name": "project3",
           "type": "media-item",
-          "columns": 2,
-          "heading": "Project 3",
-          "media-details": {
+          "heading": "CodeChef Clone",
+          "mediaDetails": {
             "type": "image-slide",
-            "src": [""]
+            "src": [
+              "https://placehold.co/1366X768/EED/31343C?font=montserrat&text=CodeChef Clone | Dummy Image 1",
+              "https://placehold.co/1366X768/EDE/31343C?font=montserrat&text=CodeChef Clone | Dummy Image 2",
+              "https://placehold.co/1366X768/EDD/31343C?font=montserrat&text=CodeChef Clone | Dummy Image 3",
+              "https://placehold.co/1366X768/DEE/31343C?font=montserrat&text=CodeChef Clone | Dummy Image 4"
+            ]
           },
-          "description": "Minim anim minim Lorem aliqua irure amet ad ex aliqua in do ea Lorem irure. Dolor labore minim est deserunt ipsum eu occaecat laboris officia do id. Eiusmod est sunt irure consequat consectetur Lorem non excepteur fugiat anim elit. Non officia voluptate eu velit sunt labore proident non nisi esse eu duis dolor irure."
+          "description": "A platform for competitive programming enthusiasts. Users can solve challenges, participate in contests, and track their progress.",
+          "badges": ["React", "Node.js", "MongoDB", "Express.js"],
+          "buttons": [
+            {
+              "text": "Visit",
+              "link": "https://www.codechefclone.example"
+            }
+          ]
         }
       ]
     }
-  ]
+  ],
+  "footer": {
+    "heading": "Raj",
+    "content": "<p>Let's collaborate and bring your ideas to life!</p>",
+    "socials": [
+      {
+        "name": "Linkedin",
+        "icon": "fa-brands fa-linkedin-in",
+        "link": "https://www.linkedin.com/in/raj-example"
+      },
+      {
+        "name": "Github",
+        "icon": "fa-brands fa-github",
+        "link": "https://github.com/raj-example"
+      },
+      {
+        "name": "Mail ID",
+        "icon": "fa-solid fa-envelope",
+        "link": "mailto:raj@example.com"
+      }
+    ]
+  }
 }
 ```
