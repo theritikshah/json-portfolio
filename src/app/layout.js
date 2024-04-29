@@ -3,7 +3,7 @@ import Script from "next/script";
 
 export const generateMetadata = async () => {
   const file = await fs.readFile(
-    process.cwd() + "/src/app/data/profile.json",
+    process.cwd() + "/public/data/profile.json",
     "utf8"
   );
   const data = JSON.parse(file);
