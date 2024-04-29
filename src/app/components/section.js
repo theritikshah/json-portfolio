@@ -49,6 +49,8 @@ const SectionWrapper = styled.div`
       : ""}
   @media screen and (max-width: 768px) {
     padding: ${(props) => (props.$topLevel ? "18vh 1.5rem" : "0")};
+    background-size: 150% 150%;
+    background-position: 50% 50%;
   }
 `;
 
