@@ -12,7 +12,7 @@ const CopyrightContainer = styled.div`
   padding: 0.5rem;
   a {
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
   }
 `;
 

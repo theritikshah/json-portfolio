@@ -87,7 +87,7 @@ const StyledLinks = styled.li`
     color: inherit;
     text-decoration: none;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 3px;
   }
   @media screen and (max-width: 768px) {

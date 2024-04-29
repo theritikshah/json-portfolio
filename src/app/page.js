@@ -39,6 +39,14 @@ export default function Home() {
         isDarkMode: darkMode,
       }}
     >
+      <head>
+        <link
+          href={`https://fonts.googleapis.com/css2?family=${
+            darkMode ? theme.dark.fontFamily : theme.default.fontFamily
+          }:wght@400;700&display=swap`}
+          rel="stylesheet"
+        ></link>
+      </head>
       <GlobalStyles />
       <Header
         brand={profileData.brand}

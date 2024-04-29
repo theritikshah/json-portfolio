@@ -10,7 +10,7 @@ export const presetThemes = {
       accentColor: "#0E46A3",
       accentSecondaryColor: "#5b94f1",
       brandColor: "#ffffff",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -20,7 +20,7 @@ export const presetThemes = {
       accentColor: "#5b94f1",
       accentSecondaryColor: "#0E46A3",
       brandColor: "#ffffff",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   blueberry: {
@@ -32,7 +32,7 @@ export const presetThemes = {
       accentColor: "#2e4a9e",
       accentSecondaryColor: "#162d72",
       brandColor: "#4a69bd",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -42,7 +42,7 @@ export const presetThemes = {
       accentColor: "#2e4a9e",
       accentSecondaryColor: "#162d72",
       brandColor: "#4a69bd",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   coconut: {
@@ -54,7 +54,7 @@ export const presetThemes = {
       accentColor: "#e0d0c0",
       accentSecondaryColor: "#c0b0a0",
       brandColor: "#fef9f5",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -64,7 +64,7 @@ export const presetThemes = {
       accentColor: "#e0d0c0",
       accentSecondaryColor: "#c0b0a0",
       brandColor: "#fef9f5",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   dragonfruit: {
@@ -76,7 +76,7 @@ export const presetThemes = {
       accentColor: "#ff0099",
       accentSecondaryColor: "#cc0077",
       brandColor: "#ff99ee",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -86,7 +86,7 @@ export const presetThemes = {
       accentColor: "#ff0099",
       accentSecondaryColor: "#cc0077",
       brandColor: "#ff99ee",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   grape: {
@@ -98,7 +98,7 @@ export const presetThemes = {
       accentColor: "#4a0080",
       accentSecondaryColor: "#330066",
       brandColor: "#6a0dad",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -108,7 +108,7 @@ export const presetThemes = {
       accentColor: "#4a0080",
       accentSecondaryColor: "#330066",
       brandColor: "#6a0dad",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   kiwi: {
@@ -120,7 +120,7 @@ export const presetThemes = {
       accentColor: "#8EE53F",
       accentSecondaryColor: "#009900",
       brandColor: "#99cc99",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -130,7 +130,7 @@ export const presetThemes = {
       accentColor: "#8EE53F",
       accentSecondaryColor: "#009900",
       brandColor: "#99cc99",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   mango: {
@@ -142,7 +142,7 @@ export const presetThemes = {
       accentColor: "#cc9933",
       accentSecondaryColor: "#805500",
       brandColor: "#ffb84d",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -152,7 +152,7 @@ export const presetThemes = {
       accentColor: "#cc9933",
       accentSecondaryColor: "#805500",
       brandColor: "#ffb84d",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   pear: {
@@ -164,7 +164,7 @@ export const presetThemes = {
       accentColor: "#a6ba00",
       accentSecondaryColor: "#7a8a00",
       brandColor: "#c0eb75",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -174,7 +174,7 @@ export const presetThemes = {
       accentColor: "#a6ba00",
       accentSecondaryColor: "#7a8a00",
       brandColor: "#c0eb75",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   pineapple: {
@@ -186,7 +186,7 @@ export const presetThemes = {
       accentColor: "#e6ac00",
       accentSecondaryColor: "#997300",
       brandColor: "#e6ac00",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -196,7 +196,7 @@ export const presetThemes = {
       accentColor: "#e6ac00",
       accentSecondaryColor: "#997300",
       brandColor: "#e6ac00",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   plum: {
@@ -208,7 +208,7 @@ export const presetThemes = {
       accentColor: "#704264",
       accentSecondaryColor: "#49243E",
       brandColor: "#ffffff",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -218,7 +218,7 @@ export const presetThemes = {
       accentColor: "#49243E",
       accentSecondaryColor: "#704264",
       brandColor: "#ffffff",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   tangerine: {
@@ -230,7 +230,7 @@ export const presetThemes = {
       accentColor: "#cc6600",
       accentSecondaryColor: "#804000",
       brandColor: "#ff9900",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -240,7 +240,7 @@ export const presetThemes = {
       accentColor: "#cc6600",
       accentSecondaryColor: "#804000",
       brandColor: "#ff9900",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
   rambutan: {
@@ -252,7 +252,7 @@ export const presetThemes = {
       accentColor: "#8b0000",
       accentSecondaryColor: "#5c0000",
       brandColor: "#ffffff",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
     dark: {
       primaryTextColor: "#ffffff",
@@ -262,7 +262,7 @@ export const presetThemes = {
       accentColor: "#8b0000",
       accentSecondaryColor: "#5c0000",
       brandColor: "#ffffff",
-      fontFamily: "Noto Sans",
+      fontFamily: "Roboto",
     },
   },
 };
@@ -284,7 +284,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
         background-color: ${({ theme }) => theme.primaryTextColor};
         color: ${({ theme }) => theme.secondaryTextColor};
-        font-family: ${({ theme }) => theme.fontFamily}, sans-serif;
+        font-family: "${({ theme }) => theme.fontFamily}", sans-serif;
         line-height: 1.8rem;
         transition: background-color 0.3s linear;
         display: grid;
