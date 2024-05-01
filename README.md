@@ -39,9 +39,9 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>theme</td>
       <td>Custom Theme</td>
       <td>No</td>
-      <td>JSON Object with structure as in example. <br/>Font value: Any
+      <td>JSON Object with structure as in example. <br/>Font value:
 
-[Google Fonts](https://fonts.google.com/)</td>
+[Any Google Fonts](https://fonts.google.com/)</td>
 
 <td>
 
@@ -138,21 +138,21 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Title to be seen on Browser's tab</td>
       <td>No (but recommended)</td>
       <td>Any String</td>
-      <td>Raj's Portfolio</td>
+      <td>"Raj's Portfolio"</td>
     </tr>
     <tr>
       <td>description</td>
       <td>Description of website (will be added in meta tags)</td>
       <td>No (but recommended)</td>
       <td>Any String</td>
-      <td>Portfolio of Full Stack Developer - Raj</td>
+      <td>"Portfolio of Full Stack Developer - Raj"</td>
     </tr>
     <tr>
       <td>creator</td>
       <td>creator of website (will be added in meta tags)</td>
       <td>No (but recommended)</td>
       <td>Any String (Your Name)</td>
-      <td>Raj</td>
+      <td>"Raj"</td>
     </tr>
     <tr>
       <td>keywords</td>
@@ -229,14 +229,14 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Name of the section. Will be render in Nav bar and will use for navigation.</td>
       <td>Yes</td>
       <td>Any String (Preferable in `Kebab` case)</td>
-      <td>home</td>
+      <td>"home"</td>
     </tr>
     <tr>
       <td>type</td>
       <td>Type of the section. "home" is special section type with background image</td>
       <td>Yes</td>
       <td>home / default</td>
-      <td>home</td>
+      <td>"home"</td>
     </tr>
     <tr>
       <td>columns</td>
@@ -250,14 +250,14 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Heading of the section. Will be render on top of section.</td>
       <td>No</td>
       <td>String (HTML) Note: classes mentioned in theme section will be available for styling.</td>
-      <td>About Me</td>
+      <td>"About Me"</td>
     </tr>
     <tr>
       <td>description</td>
       <td>Description of the section. Will be render on top of section.</td>
       <td>No</td>
       <td>String (HTML) Note: classes mentioned in theme section will be available for styling.</td>
-      <td>Know more about me...</td>
+      <td>"Know more about me..."</td>
     </tr>
     <tr>
       <td>subsections</td>
@@ -266,7 +266,7 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Array of Objects</td>
       <td>
 
-[See individual Subsection Structure](#Subsections-Structure)</td>
+[See individual Subsection Structure](#Subsection-Structure)</td>
 
   </td>
     </tr>
@@ -292,28 +292,28 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Name of the subsection.</td>
       <td>Yes</td>
       <td>Any String (Preferable in `Kebab` case)</td>
-      <td>project-1</td>
+      <td>"project-1"</td>
     </tr>
     <tr>
       <td>type</td>
       <td>Type of the section.</td>
       <td>Yes</td>
       <td>"default", "media-item", "hr</td>
-      <td>default</td>
+      <td>"default"</td>
     </tr>
     <tr>
       <td>heading</td>
       <td>Heading of the subsection. (Not available if type: "hr")</td>
       <td>No</td>
       <td>String (HTML) Note: classes mentioned in theme section will be available for styling.</td>
-      <td>About Me</td>
+      <td>"About Me"</td>
     </tr>
     <tr>
       <td>content</td>
       <td>Content of the subsection. (Not available if type: "hr")</td>
       <td>No</td>
       <td>String (HTML) Note: classes mentioned in theme section will be available for styling.</td>
-      <td>Know more about me...</td>
+      <td>"Know more about me..."</td>
     </tr>
     <tr>
       <td>badges</td>
@@ -360,6 +360,13 @@ A open source repo of portfolio website, where user can customise the website ju
 
   </td>
     </tr>
+    <tr>
+      <td>onlyMedia</td>
+      <td>Boolean to identify if there is media only and no content. (only available if type: "media-item")</td>
+      <td>No</td>
+      <td>true, false (default: false)</td>
+      <td>true</td>
+    </tr>
   </tbody>
 </table>
 
@@ -381,7 +388,7 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Heading of the footer</td>
       <td>Yes</td>
       <td>String</td>
-      <td>Raj</td>
+      <td>"Raj"</td>
     </tr>
     <tr>
       <td>content</td>
@@ -389,7 +396,7 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Yes</td>
       <td>String (HTML) Note: classes mentioned in theme section will be available for styling.</td>
       <td>
-        &lt;p&gt;Let's collaborate and bring your ideas to life!&lt;/p&gt;
+        "&lt;p&gt;Let's collaborate and bring your ideas to life!&lt;/p&gt;"
       </td>
     </tr>
     <tr>

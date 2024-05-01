@@ -4,7 +4,7 @@ import Carousel from "./carousel";
 
 const MediaItemContainer = styled.div`
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: ${(props) => (props.$onlyMedia ? "1fr" : "3fr 2fr")};
   gap: 3rem;
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -45,14 +45,16 @@ export default function MediaItem({ data }) {
   };
 
   return (
-    <MediaItemContainer>
+    <MediaItemContainer $onlyMedia={data.onlyMedia ? data.onlyMedia : false}>
       <Media>{renderMedia()}</Media>
-      <Subsection
-        data={{
-          ...data,
-          type: "default",
-        }}
-      />
+      {!data.onlyMedia && (
+        <Subsection
+          data={{
+            ...data,
+            type: "default",
+          }}
+        />
+      )}
     </MediaItemContainer>
   );
 }
