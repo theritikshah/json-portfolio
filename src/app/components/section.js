@@ -128,14 +128,19 @@ export default function Section({ data, $index, $topLevel }) {
         $index={$index}
         $topLevel={$topLevel}
       >
-        {data.heading && (
-          <StyledHeading $home={data.type === "home"} $topLevel={$topLevel}>
+        <StyledHeading $home={data.type === "home"} $topLevel={$topLevel}>
+          {data.heading && (
             <h1 dangerouslySetInnerHTML={{ __html: data.heading }}></h1>
+          )}
+          {data.description && (
             <p dangerouslySetInnerHTML={{ __html: data.description }}></p>
-          </StyledHeading>
-        )}
+          )}
+        </StyledHeading>
         {data.subsections && (
-          <SubsectionContainer $columns={data.columns} $topLevel={$topLevel}>
+          <SubsectionContainer
+            $columns={data.columns ? data.columns : 1}
+            $topLevel={$topLevel}
+          >
             {data.subsections.map((subsection, idx) => (
               <Subsection
                 key={`${data.name}_subsection_${idx}`}
