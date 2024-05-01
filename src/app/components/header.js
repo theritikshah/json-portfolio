@@ -60,7 +60,7 @@ const NavLinksContainer = styled.ul`
     right: 0px;
     flex-direction: column;
     width: 50%;
-    transform: translateX(100%);
+    transform: translateX(110%);
     transition: transform 0.5s ease-in;
     box-shadow: -10px 20px 20px rgba(0, 0, 0, 0.5);
     justify-content: flex-start;
