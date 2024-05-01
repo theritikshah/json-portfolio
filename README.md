@@ -228,7 +228,7 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>name</td>
       <td>Name of the section. Will be render in Nav bar and will use for navigation.</td>
       <td>Yes</td>
-      <td>Any String (Prefered in `Kebab` case)</td>
+      <td>Any String (Preferable in `Kebab` case)</td>
       <td>home</td>
     </tr>
     <tr>
@@ -276,7 +276,92 @@ A open source repo of portfolio website, where user can customise the website ju
 
 ### Subsection-Structure
 
-[comment]: <> (Need to add all the options in subsection)
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Possible values</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>Name of the subsection.</td>
+      <td>Yes</td>
+      <td>Any String (Preferable in `Kebab` case)</td>
+      <td>project-1</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>Type of the section.</td>
+      <td>Yes</td>
+      <td>"default", "media-item", "hr</td>
+      <td>default</td>
+    </tr>
+    <tr>
+      <td>heading</td>
+      <td>Heading of the subsection. (Not available if type: "hr")</td>
+      <td>No</td>
+      <td>String (HTML) Note: classes mentioned in theme section will be available for styling.</td>
+      <td>About Me</td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td>Content of the subsection. (Not available if type: "hr")</td>
+      <td>No</td>
+      <td>String (HTML) Note: classes mentioned in theme section will be available for styling.</td>
+      <td>Know more about me...</td>
+    </tr>
+    <tr>
+      <td>badges</td>
+      <td>Badges component. (Not available if type: "hr")</td>
+      <td>No</td>
+      <td>Array of Strings</td>
+      <td>["HTML", "CSS", "JavaScript"]</td>
+    </tr>
+    <tr>
+      <td>buttons</td>
+      <td>Buttons component. (Not available if type: "hr")</td>
+      <td>No</td>
+      <td>Array of objects containing button text and link.</td>
+      <td>
+
+```json
+[
+  {
+    "text": "Visit",
+    "link": "https://www.codechefclone.example"
+  }
+]
+```
+
+  </td>
+    </tr>
+    <tr>
+      <td>mediaDetails</td>
+      <td>Media component. (only available if type: "media-item")</td>
+      <td>No</td>
+      <td>Object containing media type and src(string for video and image, array for image-slide).</td>
+      <td>
+
+```json
+{
+  "type": "image-slide", // possible values: image, video, image-slide
+  "src": [
+    "images/healthify_1.svg",
+    "images/healthify_2.svg",
+    "images/healthify_3.svg"
+  ]
+}
+```
+
+  </td>
+    </tr>
+  </tbody>
+</table>
 
 ### Footer-Structure
 
@@ -418,13 +503,13 @@ A open source repo of portfolio website, where user can customise the website ju
       "subsections": [
         {
           "name": "about-me",
-          "type": "paragraph",
+          "type": "default",
           "heading": "More about me...",
           "content": "<p>I'm a passionate Full Stack Developer with a focus on creating scalable and efficient web applications. I enjoy working with cutting-edge technologies to solve complex problems and deliver exceptional user experiences.</p><br><p>Currently, I'm seeking exciting opportunities to contribute my skills and expertise to innovative projects. Let's connect and build something amazing together!</p>"
         },
         {
           "name": "skills",
-          "type": "badges",
+          "type": "default",
           "heading": "Skills",
           "badges": [
             "HTML",
@@ -460,7 +545,7 @@ A open source repo of portfolio website, where user can customise the website ju
             "type": "video",
             "src": "videos/placeholder.webm"
           },
-          "description": "An e-commerce platform for sustainable products. Users can browse, purchase, and review eco-friendly items.",
+          "content": "An e-commerce platform for sustainable products. Users can browse, purchase, and review eco-friendly items.",
           "badges": [
             "React",
             "Node.js",
@@ -490,7 +575,7 @@ A open source repo of portfolio website, where user can customise the website ju
               "images/healthify_3.svg"
             ]
           },
-          "description": "A health and fitness tracking application. Users can set goals, track progress, and receive personalized recommendations.",
+          "content": "A health and fitness tracking application. Users can set goals, track progress, and receive personalized recommendations.",
           "badges": ["React", "Redux", "Firebase", "Material-UI"],
           "buttons": [
             {
@@ -515,7 +600,7 @@ A open source repo of portfolio website, where user can customise the website ju
               "https://placehold.co/1366X768/DEE/31343C?font=montserrat&text=CodeChef Clone | Dummy Image 4"
             ]
           },
-          "description": "A platform for competitive programming enthusiasts. Users can solve challenges, participate in contests, and track their progress.",
+          "content": "A platform for competitive programming enthusiasts. Users can solve challenges, participate in contests, and track their progress.",
           "badges": ["React", "Node.js", "MongoDB", "Express.js"],
           "buttons": [
             {

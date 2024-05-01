@@ -15,7 +15,9 @@ export default function Subsection({ data }) {
     <>
       {data.type === "default" ? (
         <StyledSubsection>
-          {data.heading && <h3>{data.heading}</h3>}
+          {data.heading && (
+            <h3 dangerouslySetInnerHTML={{ __html: data.heading }}></h3>
+          )}
           {data.content && (
             <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
           )}
