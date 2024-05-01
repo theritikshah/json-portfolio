@@ -12,6 +12,11 @@ const MediaItemContainer = styled.div`
   }
 `;
 
+const Media = styled.div`
+  overflow: hidden;
+  margin: auto;
+`;
+
 export default function MediaItem({ data }) {
   const renderMedia = () => {
     switch (data.mediaDetails.type) {
@@ -41,7 +46,7 @@ export default function MediaItem({ data }) {
 
   return (
     <MediaItemContainer>
-      {renderMedia()}
+      <Media>{renderMedia()}</Media>
       <Subsection
         data={{
           ...data,

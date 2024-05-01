@@ -34,16 +34,14 @@ export default function Carousel({ name, images }) {
   });
 
   return (
-    <ImageContainer>
-      <ImageSlider $counter={currCarouselIndex}>
-        {images.map((image, idx) => (
-          <img
-            src={image}
-            alt={`${name}_image_${idx}`}
-            key={`${name}_image_slider_${idx}`}
-          />
-        ))}
-      </ImageSlider>
-    </ImageContainer>
+    <ImageSlider $counter={currCarouselIndex}>
+      {images.map((image, idx) => (
+        <img
+          src={image}
+          alt={`${name}_image_${idx}`}
+          key={`${name}_image_slider_${idx}`}
+        />
+      ))}
+    </ImageSlider>
   );
 }

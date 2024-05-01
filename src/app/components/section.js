@@ -86,6 +86,7 @@ const SubsectionContainer = styled.div`
   gap: 3rem;
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 `;
 
