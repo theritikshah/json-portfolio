@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Section from "./section";
+import Subsection from "./subsection";
 import Carousel from "./carousel";
 
 const MediaItemContainer = styled.div`
@@ -13,22 +13,6 @@ const MediaItemContainer = styled.div`
 `;
 
 export default function MediaItem({ data }) {
-  const subsections = [
-    {
-      name: `${data.name}_description`,
-      type: "paragraph",
-      heading: data.heading,
-      content: data.description,
-    },
-  ];
-  if (data.badges) {
-    subsections.push({
-      name: `${data.name}_badges`,
-      type: "badges",
-      heading: "",
-      badges: data.badges,
-    });
-  }
   const renderMedia = () => {
     switch (data.mediaDetails.type) {
       case "image":
@@ -58,13 +42,10 @@ export default function MediaItem({ data }) {
   return (
     <MediaItemContainer>
       {renderMedia()}
-      <Section
+      <Subsection
         data={{
-          name: data.name,
+          ...data,
           type: "default",
-          columns: 1,
-          subsections: subsections,
-          buttons: data.buttons,
         }}
       />
     </MediaItemContainer>

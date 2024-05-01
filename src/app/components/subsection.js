@@ -2,32 +2,35 @@ import styled from "styled-components";
 import Badges from "./badges";
 import MediaItem from "./mediaItem";
 import HR from "./hr";
+import ButtonGroup from "./buttonGroup";
 
 const StyledSubsection = styled.div`
-  padding: ${(props) => (props.topLevel ? "2rem 0" : "0")};
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
-const StyledHeading = styled.h3`
-  padding-bottom: 1rem;
-`;
-
-export default function Subsection({ data, topLevel }) {
+export default function Subsection({ data }) {
   return (
-    <StyledSubsection topLevel={topLevel}>
-      {data.type !== "media-item" && data.heading && (
-        <StyledHeading>{data.heading}</StyledHeading>
-      )}
-      {data.type === "paragraph" ? (
-        <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
-      ) : data.type === "badges" ? (
-        <Badges data={data.badges} />
+    <>
+      {data.type === "default" ? (
+        <StyledSubsection>
+          {data.heading && <h3>{data.heading}</h3>}
+          {data.content && (
+            <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
+          )}
+          {data.badges && <Badges data={data.badges} />}
+          {data.buttons && (
+            <ButtonGroup groupName={data.name} buttons={data.buttons} />
+          )}
+        </StyledSubsection>
       ) : data.type === "media-item" ? (
         <MediaItem data={data} />
       ) : data.type === "hr" ? (
         <HR />
       ) : (
-        <code>{JSON.stringify(data)}</code> // Todo: Handle all other type of sub sections.
+        <></>
       )}
-    </StyledSubsection>
+    </>
   );
 }

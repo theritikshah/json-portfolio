@@ -144,7 +144,7 @@ export default function Header({
   const [isHamActive, setisHamActive] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll("section.topLevel");
+      const sections = document.querySelectorAll("section");
 
       for (const section of sections) {
         const rect = section.getBoundingClientRect();

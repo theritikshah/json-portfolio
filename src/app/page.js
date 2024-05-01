@@ -63,7 +63,6 @@ export default function Home() {
         <Section
           data={section}
           $index={idx}
-          $topLevel
           key={`section_${section.name}_${idx}`}
         />
       ))}

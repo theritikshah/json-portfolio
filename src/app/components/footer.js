@@ -43,7 +43,7 @@ export default function Footer({ appName, data }) {
           <Subsection
             data={{
               name: "footer",
-              type: "paragraph",
+              type: "default",
               heading: data.heading,
               content: data.content,
             }}

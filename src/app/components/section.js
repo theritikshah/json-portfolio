@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Subsection from "./subsection";
 import convert from "color-convert";
+import ButtonGroup from "./buttonGroup";
 
 const hexToHSLString = (hex) =>
   convert.hex
@@ -14,8 +15,8 @@ const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: ${(props) => (props.$topLevel ? "18vh 8rem" : "1rem 0")};
-  min-height: ${(props) => (props.$topLevel ? "100vh" : "")};
+  padding: 18vh 8rem;
+  min-height: 100vh;
   width: 100%;
   background: ${(props) =>
     props?.$index === undefined
@@ -48,7 +49,7 @@ const SectionWrapper = styled.div`
       `
       : ""}
   @media screen and (max-width: 768px) {
-    padding: ${(props) => (props.$topLevel ? "18vh 1.5rem" : "0")};
+    padding: 18vh 1.5rem;
     background-size: 150% 150%;
     background-position: 50% 50%;
   }
@@ -57,7 +58,7 @@ const SectionWrapper = styled.div`
 const StyledHeading = styled.div`
   display: flex;
   gap: 1rem;
-  padding: ${(props) => (props.$topLevel ? "1rem 10rem 3rem" : "0")};
+  padding: 1rem 10rem 3rem;
   flex-direction: column;
   text-align: center;
   color: ${({ theme }) => theme.secondaryTextColor};
@@ -82,7 +83,7 @@ const StyledHeading = styled.div`
 const SubsectionContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(${(props) => props.$columns}, 1fr);
-  gap: ${(props) => (props.$topLevel ? "3rem" : "0.5rem")};
+  gap: 3rem;
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -120,15 +121,11 @@ const StyledButton = styled.a`
   }
 `;
 
-export default function Section({ data, $index, $topLevel }) {
+export default function Section({ data, $index }) {
   return (
-    <section id={data.name} className={$topLevel ? "topLevel" : ""}>
-      <SectionWrapper
-        $home={data.type === "home"}
-        $index={$index}
-        $topLevel={$topLevel}
-      >
-        <StyledHeading $home={data.type === "home"} $topLevel={$topLevel}>
+    <section id={data.name}>
+      <SectionWrapper $home={data.type === "home"} $index={$index}>
+        <StyledHeading $home={data.type === "home"}>
           {data.heading && (
             <h1 dangerouslySetInnerHTML={{ __html: data.heading }}></h1>
           )}
@@ -137,30 +134,17 @@ export default function Section({ data, $index, $topLevel }) {
           )}
         </StyledHeading>
         {data.subsections && (
-          <SubsectionContainer
-            $columns={data.columns ? data.columns : 1}
-            $topLevel={$topLevel}
-          >
+          <SubsectionContainer $columns={data.columns ? data.columns : 1}>
             {data.subsections.map((subsection, idx) => (
               <Subsection
                 key={`${data.name}_subsection_${idx}`}
                 data={subsection}
-                $topLevel={$topLevel}
               ></Subsection>
             ))}
           </SubsectionContainer>
         )}
         {data.buttons && (
-          <Buttons>
-            {data.buttons.map((button, idx) => (
-              <StyledButton
-                key={`${data.name}_button_${idx}`}
-                href={button.link}
-              >
-                {button.text}
-              </StyledButton>
-            ))}
-          </Buttons>
+          <ButtonGroup groupName={data.name} buttons={data.buttons} />
         )}
       </SectionWrapper>
     </section>
