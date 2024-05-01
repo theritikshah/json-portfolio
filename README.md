@@ -93,7 +93,7 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>JSON Object</td>
       <td>
 
-[See Meta Structure Table](#Meta-Structure)</td>
+[See Meta Structure](#Meta-Structure)</td>
 
   </tr>
     <tr>
@@ -103,7 +103,7 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Array of Objects</td>
       <td>
 
-[See Section Structure Table](#Sections-Structure)</td>
+[See individual Section Structure](#Sections-Structure)</td>
 
   </tr>
     <tr>
@@ -113,7 +113,7 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>JSON Object</td>
       <td>
 
-[See Footer Structure Table](#Footer-Structure)</td>
+[See Footer Structure](#Footer-Structure)</td>
 
   </tr>
 
@@ -226,9 +226,9 @@ A open source repo of portfolio website, where user can customise the website ju
   <tbody>
     <tr>
       <td>name</td>
-      <td>Name of the section</td>
+      <td>Name of the section. Will be render in Nav bar and will use for navigation.</td>
       <td>Yes</td>
-      <td>String</td>
+      <td>Any String (Prefered in `Kebab` case)</td>
       <td>home</td>
     </tr>
     <tr>
@@ -236,13 +236,47 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>Type of the section. "home" is special section type with background image</td>
       <td>Yes</td>
       <td>home / default</td>
-      <td>about-us</td>
+      <td>home</td>
     </tr>
+    <tr>
+      <td>columns</td>
+      <td>This attribute determines the number of columns in which a section should be split.</td>
+      <td>No (default is 1)</td>
+      <td>1 or 2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>heading</td>
+      <td>Heading of the section. Will be render on top of section.</td>
+      <td>No</td>
+      <td>String (HTML) Note: classes mentioned in theme section will be available for styling.</td>
+      <td>About Me</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Description of the section. Will be render on top of section.</td>
+      <td>No</td>
+      <td>String (HTML) Note: classes mentioned in theme section will be available for styling.</td>
+      <td>Know more about me...</td>
+    </tr>
+    <tr>
+      <td>subsections</td>
+      <td>subsections of the section.</td>
+      <td>No</td>
+      <td>Array of Objects</td>
+      <td>
 
-[comment]: <> (Need to add all the options in section)
+[See individual Subsection Structure](#Subsections-Structure)</td>
+
+  </td>
+    </tr>
 
   </tbody>
 </table>
+
+### Subsection-Structure
+
+[comment]: <> (Need to add all the options in subsection)
 
 ### Footer-Structure
 
@@ -268,7 +302,7 @@ A open source repo of portfolio website, where user can customise the website ju
       <td>content</td>
       <td>Content of the footer</td>
       <td>Yes</td>
-      <td>String (HTML)</td>
+      <td>String (HTML) Note: classes mentioned in theme section will be available for styling.</td>
       <td>
         &lt;p&gt;Let's collaborate and bring your ideas to life!&lt;/p&gt;
       </td>
