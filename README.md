@@ -1,7 +1,34 @@
-#Portfolio Website
+# Portfolio Website
+
 A open source repo of portfolio website, where user can customise the website just by updating their data in JSON file.
 
-## JSON Structure
+## Steps to Get Your Awesome JSON Portfolio
+
+1. **Fork the Repository**
+
+   - Fork this repository to your GitHub account.
+
+2. **Enable GitHub Pages (Using Actions)**
+
+   - Utilize GitHub Actions to enable GitHub Pages for your forked repository.
+
+3. **Update Your Details in JSON File**
+
+   - Open the `public/data/profile.json` file and update it with your portfolio details.
+   - To correctly update your details in the profile.json file, refer to the below [tables](JSON-Structure) for guidance on the available JSON fields and also take help from example.
+
+4. **Upload Media Files**
+
+   - If you do not have hosted media files, upload them to the public folder in your repository. This folder is designated for storing static assets such as images and videos. Ensure that your media files are appropriately placed within this folder for them to be accessible and displayed on your portfolio website.
+
+5. **Automatic Deployment**
+   - Any updates made to the `main` branch of your repository will automatically trigger a deployment of the site.
+
+### Note:
+
+The easy portfolio generation and removal of these manual steps are coming soon. You will simply have to fill in the data, upload the file, and with a single click, your awesome portfolio will be ready. Stay tuned for updates!
+
+## JSON-Structure
 
 <table>
   <thead>
